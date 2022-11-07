@@ -8,6 +8,7 @@ const theme = extendTheme({
         bgLight : "#1A105C",
         bgItem : "#1E1267",
         whiteText : "#F6F6F6",
+        grayText : "#838383",
         newTag : "#D05757",
         updatedTag: "#8C00A3",
         subTag : "#9593FFB2",
