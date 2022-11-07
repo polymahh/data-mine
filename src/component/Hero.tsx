@@ -2,8 +2,8 @@ import { Box, Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
 
 const Hero = () => {
   return (
-    <Box>
-      <HStack maxW={"container.xl"} pl={32}>
+    <Box width={"full"} bgGradient="linear(to-r, bgDark, bgLight)">
+      <HStack maxW={"container.xl"} pl={32} m={"auto"}>
         <VStack color={"whiteText"} alignItems={"flex-start"} pr={16}>
           <Heading
             size="2xl"

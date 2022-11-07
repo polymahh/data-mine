@@ -39,6 +39,18 @@ const theme = extendTheme({
               _hover:{ backgroundColor: 'bgLight',border:"1px"}
               
 
+            }),
+            select:(props)=>({
+              ...base.components.Button.variants.ghost(props),
+              color:"whiteText",
+              rounded:"none",
+              minW:"233px",
+              maxH:"54px",
+              fontWeight:600,
+              justifyContent:"start",
+              _hover:{ backgroundColor: 'bgLight',border:"1px"}
+              
+
             })
           }
         }
