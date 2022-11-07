@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 const DataContent = () => {
   return (
     <Box width={"full"}>
-      <HStack maxW={"container.xl"} mx={"auto"} py={"8"} px={"14"}>
+      <HStack maxW={"container.xl"} mx={"auto"} py={"8"} px={"12"}>
         <Sidebar />
         <Box color={"whiteText"}>data</Box>
       </HStack>

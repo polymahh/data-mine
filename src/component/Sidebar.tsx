@@ -2,7 +2,7 @@ import { VStack, Button, Heading, Text, Box } from "@chakra-ui/react";
 
 const Sidebar = () => {
   return (
-    <VStack alignItems={"start"} bg={"bgItem"} p={"6"}>
+    <VStack alignItems={"start"} bg={"bgItem"} p={"6"} borderRadius={"8px"}>
       <Text color={"whiteText"} fontSize="24px" textAlign={"left"}>
         Categories
       </Text>
