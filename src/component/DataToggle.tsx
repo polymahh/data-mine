@@ -1,10 +1,11 @@
-import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
-import Sidebar from "./Sidebar";
+import { Box, Tab, TabList, Tabs } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-const DataToggle = () => {
+const DataToggle = ({ tabIndex }: any) => {
   return (
     <Box width={"full"}>
       <Tabs
+        defaultIndex={tabIndex}
         variant="unstyled"
         color={"whiteText"}
         bgGradient="linear(to-r, bgLight 40%, primary 70%)"
@@ -18,7 +19,7 @@ const DataToggle = () => {
             _selected={{ borderBottom: "2px solid #6AD9C1" }}
             _hover={{ backgroundColor: "bgDark" }}
           >
-            DATA SOURCES
+            <Link to="/data-sources">DATA SOURCES</Link>
           </Tab>
           <Tab
             px={8}
@@ -27,7 +28,7 @@ const DataToggle = () => {
             _selected={{ borderBottom: "2px solid #6AD9C1" }}
             _hover={{ backgroundColor: "bgDark" }}
           >
-            DATA CONNECTORS
+            <Link to="/data-connectors">DATA CONNECTORS</Link>
           </Tab>
         </TabList>
       </Tabs>

@@ -18,7 +18,12 @@ const Hero = () => {
             FREE
             <span style={{ fontWeight: "700" }}> USER DATA</span>
           </Heading>
-          <Text fontSize="2xl" color={"primary"} fontWeight={600}>
+          <Text
+            fontSize="2xl"
+            color={"primary"}
+            fontWeight={600}
+            textAlign={"left"}
+          >
             WITH PRIFINA DATA SOURCES
           </Text>
           <Text

@@ -1,20 +1,17 @@
-import { ChakraProvider, Box, VStack } from "@chakra-ui/react";
-import Header from "./component/Header";
+import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
 import "@fontsource/open-sans";
-import Hero from "./component/Hero";
-import DataToggle from "./component/DataToggle";
-import DataContent from "./component/DataContent";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import DataSources from "./pages/data-sources/data-sources";
+import DataConnectors from "./pages/data-connectors/data-connectors";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl" bg={"bgLight"}>
-      <VStack justifyContent={"stretch"} minH="100vh" spacing={0}>
-        <Header />
-        <Hero />
-        <DataToggle />
-        <DataContent />
-      </VStack>
-    </Box>
+    <Routes>
+      <Route path="/" element={<Navigate to="/data-sources" />} />
+      <Route path="/data-sources" element={<DataSources />} />
+      <Route path="/data-connectors" element={<DataConnectors />} />
+    </Routes>
   </ChakraProvider>
 );
