@@ -4,11 +4,14 @@ const theme = extendTheme({
     colors:{
         primary: "#6AD9C1",
         hover : "#04B48E",
+        active : "#05634e",
         bgDark : "#09003D",
         bgLight : "#1A105C",
         bgItem : "#1E1267",
         whiteText : "#F6F6F6",
         grayText : "#838383",
+        searchText : "#85819E",
+        searchBorder : "#332A68",
         newTag : "#D05757",
         updatedTag: "#8C00A3",
         subTag : "#9593FFB2",
@@ -49,7 +52,7 @@ const theme = extendTheme({
               fontWeight:600,
               justifyContent:"start",
               _hover:{ backgroundColor: 'bgLight',border:"1px"}
-              
+  
 
             })
           }
