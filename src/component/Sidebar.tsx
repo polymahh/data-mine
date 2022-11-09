@@ -2,7 +2,13 @@ import { VStack, Button, Text } from "@chakra-ui/react";
 
 const Sidebar = () => {
   return (
-    <VStack alignItems={"start"} bg={"bgItem"} p={"6"} borderRadius={"8px"}>
+    <VStack
+      alignItems={"start"}
+      bg={"bgItem"}
+      p={"6"}
+      borderRadius={"8px"}
+      display={["none", "none", "flex"]}
+    >
       <Text color={"whiteText"} fontSize="24px" textAlign={"left"}>
         Categories
       </Text>

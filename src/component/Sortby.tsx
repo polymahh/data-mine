@@ -1,4 +1,12 @@
-import { Button, HStack, Tab, TabList, Tabs, Text } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Tab,
+  TabList,
+  Tabs,
+  Text,
+  Wrap,
+} from "@chakra-ui/react";
 import DataContext from "../contexts/DataContext";
 import { useContext } from "react";
 
@@ -6,7 +14,7 @@ const Sortby = () => {
   const { tabIndex } = useContext(DataContext);
 
   return (
-    <HStack color={"whiteText"} spacing={6}>
+    <Wrap color={"whiteText"} spacing={6} pl={6}>
       <Text fontSize="xl" fontWeight={600}>
         Sort By
       </Text>
@@ -64,7 +72,7 @@ const Sortby = () => {
       >
         {tabIndex ? "Request Connector" : "Request Data Source"}
       </Button>
-    </HStack>
+    </Wrap>
   );
 };
 export default Sortby;

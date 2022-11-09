@@ -1,24 +1,48 @@
-import { HStack, Button, chakra, Box } from "@chakra-ui/react";
+import {
+  HStack,
+  Button,
+  chakra,
+  Box,
+  Flex,
+  useDisclosure,
+  Icon,
+  IconButton,
+} from "@chakra-ui/react";
+import { IoMenu } from "react-icons/io5";
+import { useRef } from "react";
 
 const Header = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  // const btnRef = useRef<HTMLDivElement>();
   return (
-    <Box as="header" bg="bgDark" width={"full"}>
+    <Box as="header" bg="bgDark" width={"full"} position={"fixed"} zIndex={100}>
       <HStack
         justifyContent={"space-between"}
         px={[2, 4, 4, 16]}
         py={4}
-        maxW={"container.xl"}
+        // maxW={"container.xl"}
+        width={"full"}
         m="auto"
       >
         <chakra.img src="logo.png" />
-        <HStack as={"nav"} spacing={5}>
+        <IconButton
+          variant={"square"}
+          fontSize={"2xl"}
+          minW={"fit-content"}
+          onClick={onOpen}
+          aria-label="Menu"
+          icon={<IoMenu />}
+          display={["block", "block", "none"]}
+        />
+
+        <Flex as={"nav"} gap={5} display={["none", "none", "flex"]}>
           <Button variant="square">PLATFORM</Button>
           <Button variant="square" border="1px">
             DATA MINE
           </Button>
           <Button variant="square">YOUR DATA</Button>
           <Button variant="square">SLACK</Button>
-        </HStack>
+        </Flex>
       </HStack>
     </Box>
   );

@@ -15,10 +15,11 @@ const DataToggle = () => {
         variant="unstyled"
         color={"whiteText"}
         bgGradient="linear(to-r, bgLight 40%, primary 70%)"
-        m="auto"
         onChange={(index) => setTabIndex(index)}
       >
-        <TabList maxW={"container.xl"} mx={"auto"}>
+        <TabList
+        // maxW={"container.xl"} mx={"auto"}
+        >
           <Tab
             px={10}
             fontSize={"lg"}

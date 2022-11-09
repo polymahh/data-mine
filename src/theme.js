@@ -1,6 +1,7 @@
 import { extendTheme, theme as base } from "@chakra-ui/react";
 
 const theme = extendTheme({
+  
     colors:{
         primary: "#6AD9C1",
         hover : "#04B48E",
