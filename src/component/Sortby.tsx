@@ -15,28 +15,40 @@ const Sortby = () => {
           <Tab
             mb={-1}
             _selected={{ borderBottom: "4px solid #ffffff" }}
-            _hover={{ backgroundColor: "bgDark" }}
+            _hover={{
+              backgroundColor: "bgDark",
+              borderBottom: "4px solid #ffffff",
+            }}
           >
             All
           </Tab>
           <Tab
             mb={-1}
             _selected={{ borderBottom: "4px solid #ffffff" }}
-            _hover={{ backgroundColor: "bgDark" }}
+            _hover={{
+              backgroundColor: "bgDark",
+              borderBottom: "4px solid #ffffff",
+            }}
           >
             Recently updated
           </Tab>
           <Tab
             mb={-1}
             _selected={{ borderBottom: "4px solid #ffffff" }}
-            _hover={{ backgroundColor: "bgDark" }}
+            _hover={{
+              backgroundColor: "bgDark",
+              borderBottom: "4px solid #ffffff",
+            }}
           >
             New
           </Tab>
           <Tab
             mb={-1}
             _selected={{ borderBottom: "4px solid #ffffff" }}
-            _hover={{ backgroundColor: "bgDark" }}
+            _hover={{
+              backgroundColor: "bgDark",
+              borderBottom: "4px solid #ffffff",
+            }}
           >
             Upcoming
           </Tab>

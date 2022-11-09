@@ -1,10 +1,15 @@
 import { Box, Tab, TabList, Tabs } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DataContext from "../contexts/DataContext";
 import { useContext } from "react";
 
 const DataToggle = () => {
   const { tabIndex, setTabIndex } = useContext(DataContext);
+
+  let navigate = useNavigate();
+  const routeChange = (newPath: string) => {
+    navigate(newPath);
+  };
 
   return (
     <Box width={"full"}>
@@ -23,8 +28,9 @@ const DataToggle = () => {
             fontWeight={600}
             _selected={{ borderBottom: "2px solid #6AD9C1" }}
             _hover={{ backgroundColor: "bgDark" }}
+            onClick={() => navigate("/data-sources")}
           >
-            <Link to="/data-sources">DATA SOURCES</Link>
+            DATA SOURCES
           </Tab>
           <Tab
             px={8}
@@ -32,8 +38,9 @@ const DataToggle = () => {
             fontWeight={600}
             _selected={{ borderBottom: "2px solid #6AD9C1" }}
             _hover={{ backgroundColor: "bgDark" }}
+            onClick={() => navigate("/data-connectors")}
           >
-            <Link to="/data-connectors">DATA CONNECTORS</Link>
+            DATA CONNECTORS
           </Tab>
         </TabList>
       </Tabs>
