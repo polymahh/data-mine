@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { IoMenu } from "react-icons/io5";
 import { useRef } from "react";
+import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -34,6 +35,8 @@ const Header = () => {
           icon={<IoMenu />}
           display={["block", "block", "none"]}
         />
+
+        <MobileMenu onClose={onClose} isOpen={isOpen} />
 
         <Flex as={"nav"} gap={5} display={["none", "none", "flex"]}>
           <Button variant="square">PLATFORM</Button>

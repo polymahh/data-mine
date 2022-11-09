@@ -14,7 +14,7 @@ const Sortby = () => {
   const { tabIndex } = useContext(DataContext);
 
   return (
-    <Wrap color={"whiteText"} spacing={6} pl={6}>
+    <Wrap color={"whiteText"} spacing={6} pl={[2, 2, 6]}>
       <Text fontSize="xl" fontWeight={600}>
         Sort By
       </Text>

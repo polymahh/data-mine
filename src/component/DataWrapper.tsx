@@ -20,8 +20,8 @@ const DataWrapper = ({ children }: Props) => {
           // maxW={"container.xl"}
           // mx={"auto"}
           py={"8"}
-          px={"12"}
-          spacing={"10"}
+          px={[2, 4, 6, 12]}
+          spacing={[2, 2, 10]}
           align={"start"}
         >
           <Sidebar />

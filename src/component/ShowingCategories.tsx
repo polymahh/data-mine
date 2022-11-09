@@ -4,7 +4,7 @@ const ShowingCategories = () => {
   return (
     <HStack color={"whiteText"} fontSize={"sm"}>
       <Text>Showing results for:</Text>
-      <Text color={"primary"}>All Categories</Text>
+      <Text color={"primary"}>All</Text>
     </HStack>
   );
 };

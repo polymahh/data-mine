@@ -5,6 +5,7 @@ import {
   InputGroup,
   InputLeftElement,
   Icon,
+  Flex,
 } from "@chakra-ui/react";
 import DataContext from "../contexts/DataContext";
 import { useContext } from "react";
@@ -14,13 +15,26 @@ const SearchInput = () => {
   const { tabIndex } = useContext(DataContext);
 
   return (
-    <HStack width={"full"}>
+    <Flex
+      gap={4}
+      width={"full"}
+      direction={["column", "row"]}
+      justify={"center"}
+    >
       <InputGroup>
         <InputLeftElement
           pointerEvents="none"
-          children={<Icon as={IoSearchSharp} color={"primary"} />}
+          children={
+            <Icon
+              as={IoSearchSharp}
+              fontSize={"2xl"}
+              color={"primary"}
+              mt={3}
+            />
+          }
         />
         <Input
+          py={6}
           color={"searchText"}
           type={"text"}
           borderColor={"searchBorder"}
@@ -32,13 +46,15 @@ const SearchInput = () => {
       </InputGroup>
       <Button
         px={10}
+        alignSelf={"center"}
         bg="primary"
+        width={"fit-content"}
         _hover={{ bg: "hover" }}
         _active={{ bg: "active" }}
       >
         {tabIndex ? "Search Connectors" : "Search data sources"}
       </Button>
-    </HStack>
+    </Flex>
   );
 };
 export default SearchInput;
