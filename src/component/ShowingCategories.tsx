@@ -2,9 +2,9 @@ import { HStack, Text } from "@chakra-ui/react";
 
 const ShowingCategories = () => {
   return (
-    <HStack color={"whiteText"}>
+    <HStack color={"whiteText"} fontSize={"sm"}>
       <Text>Showing results for:</Text>
-      <Text color={"primary"}>all Ctegories</Text>
+      <Text color={"primary"}>All Categories</Text>
     </HStack>
   );
 };

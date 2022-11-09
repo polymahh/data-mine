@@ -4,6 +4,8 @@ import Header from "../../component/Header";
 import Hero from "./component/Hero";
 import { useEffect, useContext } from "react";
 import DataContext from "../../contexts/DataContext";
+import CateoryCardList from "./component/CateoryCardList";
+import DataCard from "./component/DataCard";
 
 const DataSources = () => {
   const { setTabIndex } = useContext(DataContext);
@@ -17,7 +19,14 @@ const DataSources = () => {
         <Header />
         <Hero />
         <DataWrapper>
-          <Text color={"whiteText"}>data</Text>
+          <CateoryCardList>
+            <DataCard />
+            <DataCard />
+            <DataCard />
+            <DataCard />
+            <DataCard />
+            <DataCard />
+          </CateoryCardList>
         </DataWrapper>
       </VStack>
     </Box>

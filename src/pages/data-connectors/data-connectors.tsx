@@ -4,6 +4,8 @@ import Header from "../../component/Header";
 import Hero from "./component/Hero";
 import { useEffect, useContext } from "react";
 import DataContext from "../../contexts/DataContext";
+import ConnectorCard from "./component/ConnectorCard";
+import ConnectorCardList from "./component/ConnectorCardList";
 
 const DataConnectors = () => {
   const { setTabIndex } = useContext(DataContext);
@@ -17,7 +19,11 @@ const DataConnectors = () => {
         <Header />
         <Hero />
         <DataWrapper>
-          <Text color={"whiteText"}>connectors</Text>
+          <ConnectorCardList>
+            <ConnectorCard />
+            <ConnectorCard />
+            <ConnectorCard />
+          </ConnectorCardList>
         </DataWrapper>
       </VStack>
     </Box>

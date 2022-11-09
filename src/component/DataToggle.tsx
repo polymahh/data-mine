@@ -1,5 +1,5 @@
 import { Box, Tab, TabList, Tabs } from "@chakra-ui/react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DataContext from "../contexts/DataContext";
 import { useContext } from "react";
 
@@ -7,9 +7,6 @@ const DataToggle = () => {
   const { tabIndex, setTabIndex } = useContext(DataContext);
 
   let navigate = useNavigate();
-  const routeChange = (newPath: string) => {
-    navigate(newPath);
-  };
 
   return (
     <Box width={"full"}>
