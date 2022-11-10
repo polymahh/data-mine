@@ -23,7 +23,7 @@ export function CategoryList() {
         Categories
       </Text>
       {categories.map((category) => (
-        <Button variant={"select"} fontWeight={"400"}>
+        <Button key={category} variant={"select"} fontWeight={"400"}>
           {category}
         </Button>
       ))}
