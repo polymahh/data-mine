@@ -10,9 +10,9 @@ const Hero = () => {
       <Flex
         // maxW={"container.xl"}
         py={14}
-        pl={[4, 4, 4, 32]}
-        gap={8}
-        justifyContent={"space-between"}
+        px={[4, 4, 8]}
+        gap={[4, 4, 16, 48]}
+        justifyContent={"center"}
         alignItems={"center"}
         direction={{ base: "column-reverse", md: "row" }}
       >
@@ -49,11 +49,9 @@ const Hero = () => {
             incredibly rich sets of data combined in near limitless ways
           </Text>
         </VStack>
-        <Image
-          src="./data_source_graphic.png"
-          pr={[2, 4, 8, 24]}
-          objectFit={"scale-down"}
-        />
+        <Box boxSize="auto">
+          <Image src="./data_source_graphic.png" />
+        </Box>
       </Flex>
     </Box>
   );

@@ -9,7 +9,15 @@ const DataToggle = () => {
   let navigate = useNavigate();
 
   return (
-    <Box width={"full"}>
+    <Box
+      width={"full"}
+      position={"-webkit-sticky"}
+      style={{
+        zIndex: 90,
+        position: "sticky",
+        top: "62px",
+      }}
+    >
       <Tabs
         defaultIndex={tabIndex}
         variant="unstyled"

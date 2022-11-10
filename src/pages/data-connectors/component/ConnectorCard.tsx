@@ -10,6 +10,7 @@ const DataCard = () => {
       bgGradient="linear(to-t, bgItem, bgLight)"
       borderRadius={"10px"}
       alignItems={"start"}
+      width={"318px"}
     >
       <Wrap spacing={4}>
         <Image src={"./connector-icon.png"} />

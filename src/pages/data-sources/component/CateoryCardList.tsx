@@ -12,7 +12,12 @@ const CateoryCardList = ({ children }: Props) => {
       <Text color={"whiteText"} textAlign={"center"} width={"full"}>
         Category name
       </Text>
-      <SimpleGrid minChildWidth="205px" spacing={8} width={"full"}>
+      <SimpleGrid
+        minChildWidth="205px"
+        spacing={8}
+        width={"full"}
+        justifyItems={"center"}
+      >
         {children}
       </SimpleGrid>
     </>

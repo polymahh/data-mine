@@ -9,22 +9,24 @@ const Hero = () => {
     >
       <Flex
         // maxW={"container.xl"}
-        pr={[4, 10, 12, 40]}
-        justifyContent={"space-between"}
+        // gap={[4, 10, 12, 96]}
+        pr={[4, 10, 12]}
+        justifyContent={"start"}
         alignItems={"center"}
         direction={{ base: "column-reverse", md: "row" }}
       >
         <Image
           src="./data_connectors_graphic.png"
           py={16}
+          mr={[4, 10, 12, 60, 96]}
           alignSelf={"start"}
         />
 
         <VStack
           color={"whiteText"}
           alignItems={"flex-start"}
-          pl={[4, 10, 12]}
           pt={10}
+          pl={[4, 10, 12]}
         >
           <Heading
             size="2xl"

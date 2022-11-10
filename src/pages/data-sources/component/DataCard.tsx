@@ -7,6 +7,7 @@ const DataCard = () => {
       py={10}
       bgGradient="linear(to-t, bgItem, bgLight)"
       borderRadius={"10px"}
+      width={"205px"}
     >
       <Image src={"./gmail-icon.png"} mx={16} />
       <Text color={"whiteText"} fontSize={"lg"} fontWeight={600}>

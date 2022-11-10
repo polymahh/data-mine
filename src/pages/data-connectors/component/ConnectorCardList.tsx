@@ -9,7 +9,12 @@ interface Props {
 const ConnectorCardList = ({ children }: Props) => {
   return (
     <>
-      <SimpleGrid minChildWidth="205px" spacing={8} width={"full"}>
+      <SimpleGrid
+        minChildWidth="318px"
+        spacing={8}
+        width={"full"}
+        justifyItems={"center"}
+      >
         {children}
       </SimpleGrid>
     </>
