@@ -1,12 +1,10 @@
 import { Box, Tab, TabList, Tabs } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
-import DataContext from "../contexts/DataContext";
-import { useContext } from "react";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 const DataToggle = () => {
-  const { tabIndex, setTabIndex } = useContext(DataContext);
-
   let navigate = useNavigate();
+
+  const location = useLocation();
 
   return (
     <Box
@@ -19,11 +17,10 @@ const DataToggle = () => {
       }}
     >
       <Tabs
-        defaultIndex={tabIndex}
+        defaultIndex={location.pathname.includes("/data-connectors") ? 1 : 0}
         variant="unstyled"
         color={"whiteText"}
         bgGradient="linear(to-r, bgLight 40%, primary 70%)"
-        onChange={(index) => setTabIndex(index)}
       >
         <TabList
         // maxW={"container.xl"} mx={"auto"}

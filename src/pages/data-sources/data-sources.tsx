@@ -6,12 +6,16 @@ import { useEffect, useContext } from "react";
 import DataContext from "../../contexts/DataContext";
 import CateoryCardList from "./component/CateoryCardList";
 import DataCard from "./component/DataCard";
+import axios from "axios";
 
 const DataSources = () => {
-  const { setTabIndex } = useContext(DataContext);
-
   useEffect(() => {
-    setTabIndex(0);
+    axios
+      .get("http://localhost:8000/data-sources")
+      .then((response) => response.data)
+      .then((data) => {
+        console.log(data);
+      });
   }, []);
   return (
     <Box textAlign="center" fontSize="xl" bg={"bgLight"}>
