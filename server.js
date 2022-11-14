@@ -1,11 +1,8 @@
 
-const PORT = 8000
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const axios = require('axios')
 const {Client} = require("@notionhq/client")
-const { read } = require('fs')
 
 
 
@@ -98,6 +95,6 @@ app.use("/data-connectors",connectorRouter)
 // })
 
 
-app.listen(8000, ()=> console.log(`server is running on port ${PORT} `))
+app.listen(8000 , ()=> console.log(`server is running .... `))
 
 module.exports = app
