@@ -36,7 +36,7 @@ dataRouter.get("/", async (req,res) => {
         res.status(200)
         const query = await notion.databases.query({                    
         database_id: notionDataSourcesId
-        }).then(result => console.log(result.results[0].properties))
+        }).then(result => res.json(result.results.map(item=> item.properties)))
     break;
 
     default:
@@ -99,3 +99,5 @@ app.use("/data-connectors",connectorRouter)
 
 
 app.listen(8000, ()=> console.log(`server is running on port ${PORT} `))
+
+module.exports = app
