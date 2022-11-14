@@ -1,6 +1,10 @@
 import { Image, Text, VStack } from "@chakra-ui/react";
 
-const DataCard = () => {
+interface Props {
+  name: string;
+}
+
+const DataCard = ({ name }: Props) => {
   return (
     <VStack
       spacing={8}
@@ -11,7 +15,7 @@ const DataCard = () => {
     >
       <Image src={"./gmail-icon.png"} mx={16} />
       <Text color={"whiteText"} fontSize={"lg"} fontWeight={600}>
-        Gmail
+        {name}
       </Text>
     </VStack>
   );

@@ -9,13 +9,17 @@ interface Props {
 }
 
 export function DataProvider({ children }: Props) {
-  const [tabIndex, setTabIndex] = useState(0);
+  const [dataSources, setDataSources] = useState(null);
+
+  const handleDataSources = (data: any) => {
+    setDataSources(data);
+  };
 
   return (
     <DataContext.Provider
       value={{
-        tabIndex,
-        setTabIndex,
+        dataSources,
+        handleDataSources,
       }}
     >
       {children}
