@@ -2,6 +2,7 @@ import CategoryContainner from "./CategoryContainner";
 import { SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useContext } from "react";
 import DataContext from "../../../contexts/DataContext";
+import { isTemplateSpan } from "typescript";
 
 const categories: any[] = [
   { name: "All", items: [] },
@@ -23,7 +24,9 @@ const setCategories = (dataSources: [any], category?: string) => {
   dataSources.map((source: any) => {
     source.Categories.multi_select.map((item: any) =>
       categories.map((cat) => {
-        console.log(`cat:${cat.name}`, `item:${item.name}`);
+        if (cat.name == item.name) {
+          cat.items.push(source);
+        }
       })
     );
   });
@@ -40,9 +43,10 @@ const CateoryCardList = () => {
   }, [dataSources]);
 
   return (
-    <VStack>
+    <VStack width={"full"}>
       {categories.map(
-        (cat) => cat.items.length && <CategoryContainner category={cat} />
+        (category) =>
+          category.items.length && <CategoryContainner category={category} />
       )}
     </VStack>
   );

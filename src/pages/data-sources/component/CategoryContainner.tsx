@@ -11,10 +11,10 @@ const CategoryContainner = ({ category }: any) => {
         minChildWidth="205px"
         spacing={8}
         width={"full"}
-        justifyItems={"center"}
+        justifyItems={"left"}
       >
         {category.items.map((item: any) => (
-          <DataCard name={item.name} />
+          <DataCard name={item.Name.title[0].plain_text} />
         ))}
       </SimpleGrid>
     </>
