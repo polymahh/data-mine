@@ -7,7 +7,7 @@ const DataCard = () => {
       spacing={4}
       p={8}
       pt={14}
-      bgGradient="linear(to-t, bgItem, bgLight)"
+      bgGradient="linear(to-t, bgItem, bgItem 34%)"
       borderRadius={"10px"}
       alignItems={"start"}
       width={"318px"}
