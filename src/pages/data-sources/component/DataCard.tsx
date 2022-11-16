@@ -9,7 +9,7 @@ const DataCard = ({ name }: Props) => {
     <VStack
       spacing={8}
       py={10}
-      bgGradient="linear(to-t, bgItem, bgLight)"
+      bgGradient="linear(to-t, bgItem, bgItemD)"
       borderRadius={"10px"}
       width={"205px"}
     >
