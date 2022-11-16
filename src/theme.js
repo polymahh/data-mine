@@ -7,8 +7,9 @@ const theme = extendTheme({
         hover : "#04B48E",
         active : "#05634e",
         bgDark : "#09003D",
-        bgLight : "#1A105C",
+        bgLight : "#130C45",
         bgItem : "#1E1267",
+        bgItemD : "#1E126750",
         whiteText : "#F6F6F6",
         grayText : "#838383",
         searchText : "#85819E",
@@ -24,6 +25,7 @@ const theme = extendTheme({
     sizes: {
         ...base.space,
         container: {
+          xs:'350px',
           sm: '640px',
           md: '768px',
           lg: '1024px',
