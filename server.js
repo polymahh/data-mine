@@ -10,8 +10,6 @@ const notionSecret = process.env.NOTION_SECRET
 const notionDataSourcesId = process.env.NOTION_DATASOURCES_ID
 const notionDataAttributesId = process.env.NOTION_DATAATTRIBUTES_ID
 
-const otoSecret = process.env.OTO_SECRET
-const testDb = process.env.TEST
 
 
 if(!notionSecret || !notionDataSourcesId || !notionDataAttributesId ){

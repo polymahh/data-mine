@@ -8,7 +8,7 @@ const Sidebar = () => {
       bg={"bgItem"}
       p={"6"}
       borderRadius={"8px"}
-      display={["none", "none", "flex"]}
+      display={{ base: "none", xl: "flex" }}
       position={"-webkit-sticky"}
       style={{
         zIndex: 80,

@@ -2,14 +2,15 @@ import { Box, VStack } from "@chakra-ui/react";
 import DataWrapper from "../../component/DataWrapper";
 import Header from "../../component/Header";
 import Hero from "./component/Hero";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useRef } from "react";
 import DataContext from "../../contexts/DataContext";
 import CateoryCardList from "./component/CateoryCardList";
-import DataCard from "./component/DataCard";
 import { fetchData } from "../../utils/fetcher";
 
 const DataSources = () => {
-  const { dataSources, handleDataSources } = useContext(DataContext);
+  const mounted = useRef(true);
+  const { dataSources, handleDataSources, handleCategories } =
+    useContext(DataContext);
 
   const getDataSources = async () => {
     const data = await fetchData("http://localhost:8000/data-sources");
@@ -17,17 +18,19 @@ const DataSources = () => {
   };
 
   useEffect(() => {
-    if (dataSources == null) {
+    if (mounted.current && dataSources == null) {
+      mounted.current = false;
       getDataSources();
     } else console.log("data is here");
   }, []);
 
   useEffect(() => {
     console.log(dataSources);
+    handleCategories();
   }, [dataSources]);
 
   return (
-    <Box textAlign="center" fontSize="xl" bg={"bgLight"}>
+    <Box textAlign="center" fontSize="xl" bg={"bgLight"} minW={"205px"}>
       <VStack justifyContent={"stretch"} minH="100vh" spacing={0}>
         <Header />
         <Hero />
