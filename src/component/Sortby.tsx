@@ -1,78 +1,77 @@
-import {
-  Button,
-  HStack,
-  Tab,
-  TabList,
-  Tabs,
-  Text,
-  Wrap,
-} from "@chakra-ui/react";
-import DataContext from "../contexts/DataContext";
-import { useContext } from "react";
+import { RequestButton } from "./RequestButton";
+import { Flex, Tab, TabList, Tabs, Text } from "@chakra-ui/react";
+import SortbyMenu from "./SortbyMenu";
+import CategoriesMenu from "./CategoriesMenu";
 
 const Sortby = () => {
-  const { tabIndex } = useContext(DataContext);
-
   return (
-    <Wrap color={"whiteText"} spacing={6} pl={[2, 2, 6]}>
-      <Text fontSize="xl" fontWeight={600}>
-        Sort By
-      </Text>
-      <Tabs bg={"bgItem"} borderBottom={"2px solid #4A4A4A"}>
-        <TabList>
-          <Tab
-            mb={-1}
-            _selected={{ borderBottom: "4px solid #ffffff" }}
-            _hover={{
-              backgroundColor: "bgDark",
-              borderBottom: "4px solid #ffffff",
-            }}
-          >
-            All
-          </Tab>
-          <Tab
-            mb={-1}
-            _selected={{ borderBottom: "4px solid #ffffff" }}
-            _hover={{
-              backgroundColor: "bgDark",
-              borderBottom: "4px solid #ffffff",
-            }}
-          >
-            Recently updated
-          </Tab>
-          <Tab
-            mb={-1}
-            _selected={{ borderBottom: "4px solid #ffffff" }}
-            _hover={{
-              backgroundColor: "bgDark",
-              borderBottom: "4px solid #ffffff",
-            }}
-          >
-            New
-          </Tab>
-          <Tab
-            mb={-1}
-            _selected={{ borderBottom: "4px solid #ffffff" }}
-            _hover={{
-              backgroundColor: "bgDark",
-              borderBottom: "4px solid #ffffff",
-            }}
-          >
-            Upcoming
-          </Tab>
-        </TabList>
-      </Tabs>
-      <Button
-        px={10}
-        variant="outline"
-        borderColor={"primary"}
-        color={"primary"}
-        _hover={{ borderColor: "hover", color: "hover" }}
-        _active={{ borderColor: "active", color: "active" }}
+    <>
+      <Flex
+        color={"whiteText"}
+        gap={6}
+        pl={{ base: "none", "2xl": 6 }}
+        width={"full"}
       >
-        {tabIndex ? "Request Connector" : "Request Data Source"}
-      </Button>
-    </Wrap>
+        <Text
+          fontSize="xl"
+          fontWeight={600}
+          display={{ base: "none", "2xl": "flex" }}
+        >
+          Sort By
+        </Text>
+        <Tabs
+          bg={"bgItem"}
+          borderBottom={"2px solid #4A4A4A"}
+          display={{ base: "none", "2xl": "flex" }}
+        >
+          <TabList>
+            <Tab
+              mb={-1}
+              _selected={{ borderBottom: "4px solid #ffffff" }}
+              _hover={{
+                backgroundColor: "bgDark",
+                borderBottom: "4px solid #ffffff",
+              }}
+            >
+              All
+            </Tab>
+            <Tab
+              mb={-1}
+              _selected={{ borderBottom: "4px solid #ffffff" }}
+              _hover={{
+                backgroundColor: "bgDark",
+                borderBottom: "4px solid #ffffff",
+              }}
+            >
+              Recently updated
+            </Tab>
+            <Tab
+              mb={-1}
+              _selected={{ borderBottom: "4px solid #ffffff" }}
+              _hover={{
+                backgroundColor: "bgDark",
+                borderBottom: "4px solid #ffffff",
+              }}
+            >
+              New
+            </Tab>
+            <Tab
+              mb={-1}
+              _selected={{ borderBottom: "4px solid #ffffff" }}
+              _hover={{
+                backgroundColor: "bgDark",
+                borderBottom: "4px solid #ffffff",
+              }}
+            >
+              Upcoming
+            </Tab>
+          </TabList>
+        </Tabs>
+        <CategoriesMenu />
+        <SortbyMenu />
+        <RequestButton />
+      </Flex>
+    </>
   );
 };
 export default Sortby;

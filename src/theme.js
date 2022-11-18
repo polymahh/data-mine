@@ -1,6 +1,15 @@
 import { extendTheme, theme as base } from "@chakra-ui/react";
 
 const theme = extendTheme({
+   
+
+    breakpoints : {
+      sm: '320px',
+      md: '600px',
+      lg: '700px',
+      xl: '1024px',
+      '2xl': '1440px',
+    },
   
     colors:{
         primary: "#6AD9C1",
@@ -29,10 +38,11 @@ const theme = extendTheme({
           sm: '640px',
           md: '768px',
           lg: '1024px',
-          xl: '1540px',
+          xl: '1440px'
         },
       },
-      components:{
+      
+    components:{
         Button:{
           variants:{
             square:(props)=>({
@@ -60,7 +70,7 @@ const theme = extendTheme({
             })
           }
         }
-      }
+    }
 })
 
 export default theme;

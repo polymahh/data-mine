@@ -21,7 +21,7 @@ const DataWrapper = ({ children }: Props) => {
           // mx={"auto"}
           py={"8"}
           px={[2, 4, 6, 12]}
-          spacing={[2, 2, 10]}
+          spacing={{ "2xl": 10 }}
           align={"start"}
         >
           <Sidebar />

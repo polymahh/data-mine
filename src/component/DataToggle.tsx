@@ -20,7 +20,10 @@ const DataToggle = () => {
         defaultIndex={location.pathname.includes("/data-connectors") ? 1 : 0}
         variant="unstyled"
         color={"whiteText"}
-        bgGradient="linear(to-r, bgLight 40%, primary 70%)"
+        bgGradient={{
+          base: "linear(to-r, bgLight 80%, primary 95%)",
+          xl: "linear(to-r, bgLight 40%, primary 70%)",
+        }}
       >
         <TabList
         // maxW={"container.xl"} mx={"auto"}
