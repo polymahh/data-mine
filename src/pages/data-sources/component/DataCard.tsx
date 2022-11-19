@@ -14,6 +14,7 @@ const DataCard = ({ name, img }: Props) => {
       borderRadius={"10px"}
       width={"205px"}
       height={"195px"}
+      _hover={{ cursor: "pointer" }}
     >
       <Avatar name={name} src={img} borderRadius={"lg"} />
       <Text

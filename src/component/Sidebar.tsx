@@ -7,6 +7,7 @@ const Sidebar = () => {
       alignItems={"start"}
       bg={"bgItem"}
       p={"6"}
+      mt={8}
       borderRadius={"8px"}
       display={{ base: "none", "2xl": "flex" }}
       position={"-webkit-sticky"}
