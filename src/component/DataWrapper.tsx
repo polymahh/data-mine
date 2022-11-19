@@ -24,7 +24,12 @@ const DataWrapper = ({ children }: Props) => {
           align={"start"}
         >
           <Sidebar />
-          <VStack alignItems={"start"} spacing={8} width={"full"}>
+          <VStack
+            alignItems={"start"}
+            spacing={8}
+            width={"full"}
+            px={[2, 4, 6, 12, 0]}
+          >
             <VStack
               alignItems={"start"}
               width={"full"}
@@ -36,7 +41,6 @@ const DataWrapper = ({ children }: Props) => {
                 position: "sticky",
                 top: "60px",
               }}
-              px={[2, 4, 6, 12, 0]}
               py={"8"}
             >
               <SearchInput />

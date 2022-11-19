@@ -2,6 +2,8 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
 
+const sortArr = ["All", "Recently Updated", "New", "Upcoming"];
+
 const SortbyMenu = () => {
   const [sortby, setSortby] = useState("All");
   return (
@@ -22,35 +24,16 @@ const SortbyMenu = () => {
       >
         {sortby}
       </MenuButton>
-      <MenuList bg={"bgItem"} border={"none"} zIndex={200}>
-        <MenuItem
-          _focus={{ bg: "bgLight" }}
-          _hover={{ bg: "bgLight" }}
-          onClick={() => setSortby("All")}
-        >
-          All
-        </MenuItem>
-        <MenuItem
-          _focus={{ bg: "bgLight" }}
-          _hover={{ bg: "bgLight" }}
-          onClick={() => setSortby("Recently Updated")}
-        >
-          Recently Updated
-        </MenuItem>
-        <MenuItem
-          _focus={{ bg: "bgLight" }}
-          _hover={{ bg: "bgLight" }}
-          onClick={() => setSortby("New")}
-        >
-          New
-        </MenuItem>
-        <MenuItem
-          _focus={{ bg: "bgLight" }}
-          _hover={{ bg: "bgLight" }}
-          onClick={() => setSortby("Upcoming")}
-        >
-          Upcoming
-        </MenuItem>
+      <MenuList bg={"bgItem"} border={"none"} zIndex={200} p={4}>
+        {sortArr.map((item) => (
+          <MenuItem
+            _focus={{ bg: "bgItem" }}
+            _hover={{ bg: "bgLight", border: "1px" }}
+            onClick={() => setSortby("All")}
+          >
+            {item}
+          </MenuItem>
+        ))}
       </MenuList>
     </Menu>
   );

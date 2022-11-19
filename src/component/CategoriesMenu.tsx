@@ -6,6 +6,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  MenuOptionGroup,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { IoList } from "react-icons/io5";
@@ -45,12 +46,12 @@ const CategoriesMenu = () => {
         >
           <CategoryIcon color={"whiteText"} boxSize={6} />
         </MenuButton>
-        <MenuList bg={"bgItem"} border={"none"} zIndex={200}>
+        <MenuList bg={"bgItem"} border={"none"} zIndex={200} p={4}>
           {categories.map((cat, idx) => (
             <MenuItem
               key={idx}
-              _focus={{ bg: "bgLight" }}
-              _hover={{ bg: "bgLight" }}
+              _focus={{ bg: "bgItem" }}
+              _hover={{ bg: "bgLight", border: "1px" }}
               onClick={() => setCategory(cat)}
               textOverflow={"clip"}
             >

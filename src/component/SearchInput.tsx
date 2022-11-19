@@ -8,15 +8,21 @@ import {
   InputRightAddon,
   InputRightElement,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoSearchSharp, IoClose } from "react-icons/io5";
 import { useLocation } from "react-router-dom";
 
 const SearchInput = () => {
   const [focus, setFocus] = useState(false);
-  const location = useLocation();
+  const [val, setVal] = useState("");
 
+  // change the button based on link
+  const location = useLocation();
   const tabIndex = location.pathname.includes("/data-connectors") ? 1 : 0;
+
+  useEffect(() => {
+    console.log(val);
+  }, [val]);
 
   return (
     <Flex
@@ -24,6 +30,8 @@ const SearchInput = () => {
       width={"full"}
       direction={["column", "row"]}
       justify={"center"}
+      onMouseDown={() => setFocus(true)}
+      onBlur={() => setFocus(false)}
     >
       <InputGroup _hover={{ color: "searchText" }}>
         <InputLeftElement
@@ -40,7 +48,7 @@ const SearchInput = () => {
         />
         <Input
           borderRadius={{ base: "lg", xl: "lg" }}
-          px={[4, 4, 4, 4, 12]}
+          pl={[4, 4, 4, 4, 12]}
           py={6}
           color={"searchText"}
           type={"text"}
@@ -48,19 +56,23 @@ const SearchInput = () => {
           bg={"bgDark"}
           _hover={{ borderColor: "hover" }}
           focusBorderColor={"primary"}
-          onFocus={() => setFocus(true)}
-          onBlur={() => setFocus(false)}
+          value={val}
+          //
+          onChange={(e) => setVal(e.target.value)}
           placeholder="Search for data attributes, categories or apps"
         />
         <InputRightElement
-          pointerEvents="none"
+          // pointerEvents="auto"
+          display={focus ? "flex" : "none"}
           children={
             <Icon
               as={IoClose}
               fontSize={"2xl"}
-              color={focus ? "primary" : "bgDark"}
+              color={"primary"}
               mr={{ base: 28, xl: 4 }}
               mt={3}
+              onMouseDown={() => setVal("")}
+              _hover={{ cursor: "pointer" }}
             />
           }
         />
@@ -69,6 +81,7 @@ const SearchInput = () => {
           py={6}
           bg={"primary"}
           borderColor={"primary"}
+          _hover={{ bg: "hover" }}
           children={
             <Icon as={IoSearchSharp} fontSize={"2xl"} color={"bgLight"} />
           }
