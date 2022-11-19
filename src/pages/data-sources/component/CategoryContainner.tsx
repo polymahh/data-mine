@@ -9,7 +9,10 @@ const CategoryContainner = ({ category }: any) => {
       </Text>
       <Flex gap={8} width={"full"} wrap={"wrap"} justify={["center", "left"]}>
         {category.items.map((item: any) => (
-          <DataCard name={item.Name.title[0].plain_text} />
+          <DataCard
+            name={item.Name.title[0].plain_text}
+            img={item.iconURL.url}
+          />
         ))}
       </Flex>
     </>
