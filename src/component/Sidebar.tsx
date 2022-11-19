@@ -13,7 +13,7 @@ const Sidebar = () => {
       style={{
         zIndex: 80,
         position: "sticky",
-        top: "130px",
+        top: "80px",
       }}
     >
       <CategoryList />

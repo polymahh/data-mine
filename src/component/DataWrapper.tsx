@@ -19,16 +19,30 @@ const DataWrapper = ({ children }: Props) => {
         <HStack
           // maxW={"container.xl"}
           // mx={"auto"}
-          py={"8"}
-          px={[2, 4, 6, 12]}
+          px={[0, 0, 0, 0, 12]}
           spacing={{ "2xl": 10 }}
           align={"start"}
         >
           <Sidebar />
           <VStack alignItems={"start"} spacing={8} width={"full"}>
-            <SearchInput />
-            <ShowingCategories />
-            <Sortby />
+            <VStack
+              alignItems={"start"}
+              width={"full"}
+              bg={"bgLight"}
+              spacing={8}
+              position={"-webkit-sticky"}
+              style={{
+                zIndex: 90,
+                position: "sticky",
+                top: "60px",
+              }}
+              px={[2, 4, 6, 12, 0]}
+              py={"8"}
+            >
+              <SearchInput />
+              <ShowingCategories />
+              <Sortby />
+            </VStack>
             {/* data sources */}
             {children}
           </VStack>

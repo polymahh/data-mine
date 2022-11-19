@@ -7,15 +7,7 @@ const DataToggle = () => {
   const location = useLocation();
 
   return (
-    <Box
-      width={"full"}
-      position={"-webkit-sticky"}
-      style={{
-        zIndex: 90,
-        position: "sticky",
-        top: "62px",
-      }}
-    >
+    <Box width={"full"}>
       <Tabs
         defaultIndex={location.pathname.includes("/data-connectors") ? 1 : 0}
         variant="unstyled"
