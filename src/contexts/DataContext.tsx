@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 import { ReactNode } from "react";
+import Sortby from "../component/Sortby";
 
 const initialCategories: any[] = [
-  { name: "All", items: [] },
   { name: "Appliances", items: [] },
   { name: "Blogging", items: [] },
   { name: "Calenders", items: [] },
@@ -27,6 +27,8 @@ interface Props {
 export function DataProvider({ children }: Props) {
   const [dataSources, setDataSources] = useState(null);
   const [categories, setCategories] = useState<any>(null);
+  const [selectedCategory, setSelectedCategory] = useState(["All"]);
+  const [sortby, setSortby] = useState("All");
 
   const handleDataSources = (data: any) => {
     setDataSources(data);
@@ -45,8 +47,14 @@ export function DataProvider({ children }: Props) {
       });
       setCategories(initialCategories);
     }
+    if (categories !== null && selectedCategory[0] !== "All") {
+      console.log(selectedCategory);
 
-    console.log(categories);
+      const filteredCategory = initialCategories.filter((category) =>
+        selectedCategory.includes(category.name)
+      );
+      setCategories(filteredCategory);
+    }
   };
 
   return (
@@ -56,6 +64,10 @@ export function DataProvider({ children }: Props) {
         handleDataSources,
         categories,
         handleCategories,
+        selectedCategory,
+        setSelectedCategory,
+        sortby,
+        setSortby,
       }}
     >
       {children}

@@ -2,7 +2,13 @@ import { extendTheme, theme as base } from "@chakra-ui/react";
 
 const theme = extendTheme({
    
-
+    styles:{
+      global:{
+        body:{
+          backgroundColor:"bgLight"
+        }
+      }
+    },
     breakpoints : {
       sm: '320px',
       md: '600px',

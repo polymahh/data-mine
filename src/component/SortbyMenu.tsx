@@ -1,11 +1,13 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
-import { useState } from "react";
+import { useContext } from "react";
 import { IoChevronDown } from "react-icons/io5";
+import DataContext from "../contexts/DataContext";
 
 const sortArr = ["All", "Recently Updated", "New", "Upcoming"];
 
 const SortbyMenu = () => {
-  const [sortby, setSortby] = useState("All");
+  const { sortby, setSortby } = useContext(DataContext);
+
   return (
     <Menu>
       <MenuButton
@@ -29,7 +31,7 @@ const SortbyMenu = () => {
           <MenuItem
             _focus={{ bg: "bgItem" }}
             _hover={{ bg: "bgLight", border: "1px" }}
-            onClick={() => setSortby("All")}
+            onClick={() => setSortby(item)}
           >
             {item}
           </MenuItem>

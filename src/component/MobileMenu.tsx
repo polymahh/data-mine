@@ -5,12 +5,9 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Input,
   Button,
   VStack,
 } from "@chakra-ui/react";
-import { CategoryList } from "./CategoryList";
-import { Flex } from "@chakra-ui/react";
 
 interface Props {
   isOpen: boolean;

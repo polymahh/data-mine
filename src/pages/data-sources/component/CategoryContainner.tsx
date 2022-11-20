@@ -7,7 +7,12 @@ const CategoryContainner = ({ category }: any) => {
       <Text color={"whiteText"} textAlign={"center"} width={"full"}>
         {category.name}
       </Text>
-      <Flex gap={8} width={"full"} wrap={"wrap"} justify={["center", "left"]}>
+      <Flex
+        gap={8}
+        width={"full"}
+        wrap={"wrap"}
+        justify={["center", "center", "left"]}
+      >
         {category.items.map((item: any) => (
           <DataCard
             name={item.Name.title[0].plain_text}

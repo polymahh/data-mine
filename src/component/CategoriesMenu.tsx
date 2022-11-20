@@ -8,9 +8,8 @@ import {
   MenuList,
   MenuOptionGroup,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { IoList } from "react-icons/io5";
 import CategoryIcon from "../assets/CategoryIcon";
+import { CategoryButton } from "./CategoryButton";
 
 const categories = [
   "All",
@@ -29,10 +28,9 @@ const categories = [
 ];
 
 const CategoriesMenu = () => {
-  const [category, setCategory] = useState("ALl");
   return (
     <Flex flexGrow={"2"} display={{ base: "flex", "2xl": "none" }}>
-      <Menu>
+      <Menu closeOnSelect={false}>
         <MenuButton
           as={Button}
           mr={4}
@@ -47,15 +45,9 @@ const CategoriesMenu = () => {
           <CategoryIcon color={"whiteText"} boxSize={6} />
         </MenuButton>
         <MenuList bg={"bgItem"} border={"none"} zIndex={200} p={4}>
-          {categories.map((cat, idx) => (
-            <MenuItem
-              key={idx}
-              _focus={{ bg: "bgItem" }}
-              _hover={{ bg: "bgLight", border: "1px" }}
-              onClick={() => setCategory(cat)}
-              textOverflow={"clip"}
-            >
-              {cat}
+          {categories.map((category, idx) => (
+            <MenuItem key={idx} _focus={{ bg: "bgItem" }} textOverflow={"clip"}>
+              <CategoryButton category={category} />
             </MenuItem>
           ))}
         </MenuList>
