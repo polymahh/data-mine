@@ -6,12 +6,7 @@ interface Props {
   category: string;
 }
 export function CategoryButton({ category }: Props) {
-  const {
-    selectedCategory,
-    setSelectedCategory,
-    setCategories,
-    handleCategories,
-  } = useContext(DataContext);
+  const { selectedCategory, setSelectedCategory } = useContext(DataContext);
   return (
     <Button
       key={category}
