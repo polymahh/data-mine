@@ -15,7 +15,7 @@ const DataWrapper = ({ children }: Props) => {
   return (
     <>
       <DataToggle />
-      <Box width={"full"}>
+      <Box width={"full"} pb={8}>
         <HStack
           // maxW={"container.xl"}
           // mx={"auto"}

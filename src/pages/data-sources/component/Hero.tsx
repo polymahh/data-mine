@@ -1,4 +1,12 @@
-import { Box, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Heading,
+  Hide,
+  Image,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
 const Hero = () => {
   return (
@@ -10,11 +18,12 @@ const Hero = () => {
       <Flex
         // maxW={"container.xl"}
         py={14}
-        px={[4, 4, 8]}
-        gap={[4, 4, 16, 48]}
-        justifyContent={"center"}
+        pl={4}
+        gap={[14, 14, 0, 12, 48]}
+        direction={["column-reverse", "column-reverse", "row"]}
+        justifyContent={{ base: "space-between", xl: "center" }}
         alignItems={"center"}
-        direction={{ base: "column-reverse", md: "row" }}
+        overflow={"hidden"}
       >
         <VStack color={"whiteText"} alignItems={"start"} minW={"350px"}>
           <Heading
@@ -49,8 +58,11 @@ const Hero = () => {
             incredibly rich sets of data combined in near limitless ways
           </Text>
         </VStack>
-        <Box boxSize="auto">
-          <Image src="./data_source_graphic.png" />
+        <Box boxSize="auto" mr={[0, 0, "-25%", "-15%", 0]}>
+          <Image
+            src="./data_source_graphic.png"
+            height={["full", "350px", "300px", "300px", "300px", "full"]}
+          />
         </Box>
       </Flex>
     </Box>

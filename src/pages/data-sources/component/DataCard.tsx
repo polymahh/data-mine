@@ -9,14 +9,20 @@ const DataCard = ({ name, img }: Props) => {
   return (
     <VStack
       spacing={8}
-      py={8}
+      pt={8}
       bgGradient="linear(to-t, bgItem, bgItemD)"
       borderRadius={"10px"}
       width={"205px"}
       height={"195px"}
       _hover={{ cursor: "pointer" }}
     >
-      <Avatar name={name} src={img} borderRadius={"lg"} />
+      <Avatar
+        name={name}
+        src={img}
+        borderRadius={"lg"}
+        width={"60px"}
+        height={"60px"}
+      />
       <Text
         width={"full"}
         px={4}

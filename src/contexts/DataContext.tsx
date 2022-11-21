@@ -28,10 +28,11 @@ export function DataProvider({ children }: Props) {
   const [dataSources, setDataSources] = useState(null);
   const [categories, setCategories] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState(["All"]);
-  const [sortby, setSortby] = useState("All");
+  const [sortby, setSortby] = useState("New");
 
   const handleDataSources = (data: any) => {
     setDataSources(data);
+    handleSortby();
   };
 
   const handleCategories = () => {
@@ -45,6 +46,7 @@ export function DataProvider({ children }: Props) {
           })
         );
       });
+
       setCategories(initialCategories);
     }
     if (categories !== null && selectedCategory[0] !== "All") {
@@ -53,7 +55,16 @@ export function DataProvider({ children }: Props) {
       const filteredCategory = initialCategories.filter((category) =>
         selectedCategory.includes(category.name)
       );
+      handleSortby();
       setCategories(filteredCategory);
+    }
+  };
+
+  const handleSortby = () => {
+    if (dataSources !== null) {
+      [...dataSources].map((item: any) => {
+        console.log(new Date(item["Last edit at"].last_edited_time));
+      });
     }
   };
 
