@@ -6,8 +6,12 @@ interface Props {
   category: string;
 }
 export function CategoryButton({ category }: Props) {
-  const { selectedCategory, setSelectedCategory, handleCategories } =
-    useContext(DataContext);
+  const {
+    selectedCategory,
+    setSelectedCategory,
+    setCategories,
+    handleCategories,
+  } = useContext(DataContext);
   return (
     <Button
       key={category}
@@ -15,16 +19,21 @@ export function CategoryButton({ category }: Props) {
       fontWeight={"400"}
       border={selectedCategory.includes(category) ? "1px" : "none"}
       onClick={() => {
-        if (category === "All") {
-          setSelectedCategory(["All"]);
-        } else {
-          if (!selectedCategory.includes(category)) {
-            const arr = selectedCategory.filter(
-              (item: string) => item !== "All"
-            );
+        if (category !== "All") {
+          const idx = selectedCategory.indexOf(category);
+          const arr = selectedCategory.filter((item: string) => item !== "All");
+          if (idx === -1) {
             arr.push(category);
             setSelectedCategory(arr);
+          } else {
+            arr.splice(idx, 1);
+            if (arr.length === 0) {
+              setSelectedCategory(["All"]);
+            } else setSelectedCategory(arr);
           }
+        }
+        if (category === "All" || selectedCategory.length === 0) {
+          setSelectedCategory(["All"]);
         }
       }}
     >

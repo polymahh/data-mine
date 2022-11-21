@@ -32,7 +32,6 @@ export function DataProvider({ children }: Props) {
 
   const handleDataSources = (data: any) => {
     setDataSources(data);
-    handleSortby();
   };
 
   const handleCategories = () => {
@@ -55,18 +54,20 @@ export function DataProvider({ children }: Props) {
       const filteredCategory = initialCategories.filter((category) =>
         selectedCategory.includes(category.name)
       );
-      handleSortby();
       setCategories(filteredCategory);
+    }
+    if (categories !== null && selectedCategory[0] === "All") {
+      setCategories(initialCategories);
     }
   };
 
-  const handleSortby = () => {
-    if (dataSources !== null) {
-      [...dataSources].map((item: any) => {
-        console.log(new Date(item["Last edit at"].last_edited_time));
-      });
-    }
-  };
+  // const handleSortby = () => {
+  //   if (dataSources !== null) {
+  //     [...dataSources].map((item: any) => {
+  //       console.log(new Date(item["Last edit at"].last_edited_time));
+  //     });
+  //   }
+  // };
 
   return (
     <DataContext.Provider
