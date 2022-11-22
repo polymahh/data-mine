@@ -1,4 +1,5 @@
-import { Avatar, Text, VStack } from "@chakra-ui/react";
+import { StatusBadge } from "../../../component/StatusBadge";
+import { Avatar, Badge, Box, Center, Text, VStack } from "@chakra-ui/react";
 
 interface Props {
   name: string;
@@ -9,16 +10,18 @@ const DataCard = ({ name, img }: Props) => {
   return (
     <VStack
       spacing={8}
-      pt={8}
+      pt={10}
       bgGradient="linear(to-t, bgItem, bgItemD)"
       borderRadius={"10px"}
       width={"205px"}
       height={"195px"}
       _hover={{ cursor: "pointer" }}
+      position={"relative"}
+      overflow={"hidden"}
     >
       <Avatar
         name={name}
-        src={img}
+        src={name}
         borderRadius={"lg"}
         width={"60px"}
         height={"60px"}
@@ -33,6 +36,7 @@ const DataCard = ({ name, img }: Props) => {
       >
         {name}
       </Text>
+      <StatusBadge />
     </VStack>
   );
 };
