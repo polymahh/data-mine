@@ -67,30 +67,7 @@ app.use(cors())
 app.use("/data-sources",dataRouter)
 app.use("/data-connectors",connectorRouter)
 
-// app.get('*',  (req, res) =>  {
-//     switch(req.url){
-//         case "/data-sources":
-//             console.log(req.url)
-//             res.status(200)
-//             res.json({result:"sucess data"})  
-//             break;
-//         case "/data-connectors":
-//             console.log(req.url)
-//             res.status(200)
-//             res.json({result:"sucess connectore"})  
-//             break;
-//         case "/":
-//             console.log(req.url)
-//             res.status(200)
-//             res.json({result:"done"})  
-//             break;
-//         default:
-//             res.status(404)
-//             res.json({result:"default err"}) 
-//     }
-   
-       
-// })
+
 
 
 app.listen(8000 , ()=> console.log(`server is running .... `))
