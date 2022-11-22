@@ -8,21 +8,19 @@ import {
   InputRightAddon,
   InputRightElement,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { IoSearchSharp, IoClose } from "react-icons/io5";
 import { useLocation } from "react-router-dom";
+import DataContext from "../contexts/DataContext";
 
 const SearchInput = () => {
   const [focus, setFocus] = useState(false);
   const [val, setVal] = useState("");
+  const { searchVal, setSearchVal } = useContext(DataContext);
 
   // change the button based on link
   const location = useLocation();
   const tabIndex = location.pathname.includes("/data-connectors") ? 1 : 0;
-
-  useEffect(() => {
-    console.log(val);
-  }, [val]);
 
   return (
     <Flex
@@ -56,9 +54,9 @@ const SearchInput = () => {
           bg={"bgDark"}
           _hover={{ borderColor: "hover" }}
           focusBorderColor={"primary"}
-          value={val}
+          value={searchVal}
           //
-          onChange={(e) => setVal(e.target.value)}
+          onChange={(e) => setSearchVal(e.target.value)}
           placeholder="Search for data attributes, categories or apps"
         />
         <InputRightElement
@@ -71,7 +69,7 @@ const SearchInput = () => {
               color={"primary"}
               mr={{ base: 28, xl: 4 }}
               mt={3}
-              onMouseDown={() => setVal("")}
+              onMouseDown={() => setSearchVal("")}
               _hover={{ cursor: "pointer" }}
             />
           }

@@ -22,7 +22,7 @@ const DataCard = ({ name, img }: Props) => {
       <Avatar
         name={name}
         src={name}
-        borderRadius={"lg"}
+        borderRadius={"2xl"}
         width={"60px"}
         height={"60px"}
       />

@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import { ReactNode } from "react";
-import Sortby from "../component/Sortby";
 
 const initialCategories: any[] = [
   { name: "Appliances", items: [] },
@@ -28,11 +27,39 @@ export function DataProvider({ children }: Props) {
   const [dataSources, setDataSources] = useState(null);
   const [categories, setCategories] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState(["All"]);
-  const [sortby, setSortby] = useState("New");
+  const [sortby, setSortby] = useState("All");
+  const [searchVal, setSearchVal] = useState("");
 
   const handleDataSources = (data: any) => {
     setDataSources(data);
   };
+
+  const sortbyCategories =
+    selectedCategory[0] === "All"
+      ? initialCategories
+      : initialCategories.filter((category) =>
+          selectedCategory.includes(category.name)
+        );
+
+  const sortbySearch =
+    searchVal === ""
+      ? sortbyCategories
+      : sortbyCategories.map((category: any) => {
+          const filtered =
+            category.items.length > 0
+              ? {
+                  name: category.name,
+                  items: [
+                    ...category.items.filter((item: any) =>
+                      item.Name.title[0].plain_text
+                        .toLowerCase()
+                        .includes(searchVal)
+                    ),
+                  ],
+                }
+              : category;
+          return filtered;
+        });
 
   const handleCategories = () => {
     if (dataSources && categories == null) {
@@ -45,29 +72,18 @@ export function DataProvider({ children }: Props) {
           })
         );
       });
-
       setCategories(initialCategories);
     }
-    if (categories !== null && selectedCategory[0] !== "All") {
-      console.log(selectedCategory);
+    if (categories !== null) {
+      if (selectedCategory[0] !== "All") {
+        setCategories(sortbyCategories);
+      } else setCategories(initialCategories);
 
-      const filteredCategory = initialCategories.filter((category) =>
-        selectedCategory.includes(category.name)
-      );
-      setCategories(filteredCategory);
-    }
-    if (categories !== null && selectedCategory[0] === "All") {
-      setCategories(initialCategories);
+      if (searchVal !== "") {
+        setCategories(sortbySearch);
+      }
     }
   };
-
-  // const handleSortby = () => {
-  //   if (dataSources !== null) {
-  //     [...dataSources].map((item: any) => {
-  //       console.log(new Date(item["Last edit at"].last_edited_time));
-  //     });
-  //   }
-  // };
 
   return (
     <DataContext.Provider
@@ -80,6 +96,8 @@ export function DataProvider({ children }: Props) {
         setSelectedCategory,
         sortby,
         setSortby,
+        searchVal,
+        setSearchVal,
       }}
     >
       {children}

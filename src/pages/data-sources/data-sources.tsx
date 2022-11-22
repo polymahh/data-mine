@@ -9,8 +9,13 @@ import { fetchData } from "../../utils/fetcher";
 
 const DataSources = () => {
   const mounted = useRef(true);
-  const { dataSources, handleDataSources, handleCategories, selectedCategory } =
-    useContext(DataContext);
+  const {
+    dataSources,
+    handleDataSources,
+    handleCategories,
+    selectedCategory,
+    searchVal,
+  } = useContext(DataContext);
 
   const getDataSources = async () => {
     const data = await fetchData("http://localhost:8000/data-sources");
@@ -27,7 +32,7 @@ const DataSources = () => {
   useEffect(() => {
     console.log(dataSources);
     handleCategories();
-  }, [dataSources, selectedCategory]);
+  }, [dataSources, selectedCategory, searchVal]);
 
   return (
     <Box textAlign="center" fontSize="xl" bg={"bgLight"} minW={"205px"}>
