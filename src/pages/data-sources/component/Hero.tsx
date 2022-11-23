@@ -21,17 +21,20 @@ const Hero = () => {
         pl={4}
         gap={[14, 14, 0, 12, 48]}
         direction={["column-reverse", "column-reverse", "row"]}
-        justifyContent={{ base: "space-between", xl: "center" }}
+        justifyContent={{
+          base: "space-between",
+          lg: "space-around",
+          xl: "center",
+        }}
         alignItems={"center"}
         overflow={"hidden"}
       >
-        <VStack color={"whiteText"} alignItems={"start"} minW={"350px"}>
+        <VStack color={"whiteText"} alignItems={"start"}>
           <Heading
-            size="2xl"
-            fontSize="56px"
+            fontSize={["24px", "24px", "56px"]}
             fontWeight={300}
             textAlign={"left"}
-            lineHeight={"0.9"}
+            lineHeight={["0.9", "0.9"]}
           >
             <span style={{ fontWeight: "700" }}>RICH </span>HASSLE
             <br />
@@ -39,7 +42,7 @@ const Hero = () => {
             <span style={{ fontWeight: "700" }}> USER DATA</span>
           </Heading>
           <Text
-            fontSize="2xl"
+            fontSize={{ base: "md", md: "2xl" }}
             color={"primary"}
             fontWeight={600}
             textAlign={"left"}
@@ -47,7 +50,7 @@ const Hero = () => {
             WITH PRIFINA DATA SOURCES
           </Text>
           <Text
-            fontSize="lg"
+            fontSize={{ base: "sm", md: "md" }}
             fontWeight={600}
             color={"grayText"}
             textAlign={"left"}
@@ -61,7 +64,8 @@ const Hero = () => {
         <Box boxSize="auto" mr={[0, 0, "-25%", "-15%", 0]}>
           <Image
             src="./data_source_graphic.png"
-            height={["full", "350px", "300px", "300px", "300px", "full"]}
+            height={["50%", "260px", "300px", "300px", "300px", "full"]}
+            px={[4, 8, 0]}
           />
         </Box>
       </Flex>

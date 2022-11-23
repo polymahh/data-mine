@@ -28,6 +28,8 @@ const DataConnectors = () => {
             <ConnectorCard />
             <ConnectorCard />
             <ConnectorCard />
+            <ConnectorCard />
+            <ConnectorCard />
           </ConnectorCardList>
         </DataWrapper>
       </VStack>

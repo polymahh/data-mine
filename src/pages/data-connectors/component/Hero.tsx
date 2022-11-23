@@ -8,29 +8,28 @@ const Hero = () => {
       style={{ marginTop: "62px" }}
     >
       <Flex
-        // maxW={"container.xl"}
-        // gap={[4, 10, 12, 96]}
-        pr={[4, 10, 12]}
-        justifyContent={"start"}
+        py={14}
+        pr={4}
+        gap={[14, 14, 0, 10, 48]}
+        direction={["column", "column", "row"]}
+        justifyContent={{
+          base: "space-between",
+          lg: "space-around",
+          xl: "center",
+        }}
         alignItems={"center"}
-        direction={{ base: "column-reverse", md: "row" }}
+        overflow={"hidden"}
       >
-        <Image
-          src="./data_connectors_graphic.png"
-          py={16}
-          mr={[4, 10, 12, 60, 96]}
-          alignSelf={"start"}
-        />
+        <Box boxSize="auto" ml={[0, 0, "-30%", "-18%", 0]}>
+          <Image
+            src="./data_connectors_graphic.png"
+            height={["full", "311px", "368px", "360px", "360px", "full"]}
+          />
+        </Box>
 
-        <VStack
-          color={"whiteText"}
-          alignItems={"flex-start"}
-          pt={10}
-          pl={[4, 10, 12]}
-        >
+        <VStack color={"whiteText"} alignItems={"flex-start"} pl={[4, 4, 0]}>
           <Heading
-            size="2xl"
-            fontSize="56px"
+            fontSize={["24px", "24px", "56px"]}
             fontWeight={300}
             textAlign={"left"}
             lineHeight={"0.9"}
@@ -41,7 +40,7 @@ const Hero = () => {
             <span style={{ fontWeight: "700" }}> USER DATA</span>
           </Heading>
           <Text
-            fontSize="2xl"
+            fontSize={{ base: "md", md: "2xl" }}
             noOfLines={4}
             color={"primary"}
             fontWeight={600}
@@ -50,7 +49,7 @@ const Hero = () => {
             WITH PRIFINA DATA SOURCES
           </Text>
           <Text
-            fontSize="lg"
+            fontSize={{ base: "sm", md: "md" }}
             fontWeight={600}
             color={"grayText"}
             textAlign={"left"}

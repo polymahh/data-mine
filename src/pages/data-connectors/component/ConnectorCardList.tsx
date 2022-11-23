@@ -10,10 +10,12 @@ const ConnectorCardList = ({ children }: Props) => {
   return (
     <>
       <SimpleGrid
-        minChildWidth="318px"
-        spacing={8}
+        minChildWidth={{ base: "full", xl: "318px" }}
+        columnGap={4}
+        spacingY={8}
         width={"full"}
-        justifyItems={"center"}
+        justifyItems={{ base: "center", xl: "left" }}
+        px={4}
       >
         {children}
       </SimpleGrid>
