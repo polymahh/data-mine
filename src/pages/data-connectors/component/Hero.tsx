@@ -10,7 +10,7 @@ const Hero = () => {
       <Flex
         py={14}
         pr={4}
-        gap={[14, 14, 0, 10, 48]}
+        gap={[14, 14, 0, 0, 48]}
         direction={["column", "column", "row"]}
         justifyContent={{
           base: "space-between",
@@ -20,7 +20,7 @@ const Hero = () => {
         alignItems={"center"}
         overflow={"hidden"}
       >
-        <Box boxSize="auto" ml={[0, 0, "-30%", "-18%", 0]}>
+        <Box boxSize="auto" ml={[0, 0, "-30%", "-25%", 0]}>
           <Image
             src="./data_connectors_graphic.png"
             height={["full", "311px", "368px", "360px", "360px", "full"]}

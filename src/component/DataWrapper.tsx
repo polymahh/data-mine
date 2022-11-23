@@ -26,7 +26,7 @@ const DataWrapper = ({ children }: Props) => {
           <Sidebar />
           <VStack
             alignItems={"start"}
-            spacing={8}
+            spacing={32}
             width={"full"}
             px={[2, 4, 6, 12, 0]}
           >

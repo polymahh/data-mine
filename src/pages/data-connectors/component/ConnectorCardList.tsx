@@ -1,5 +1,7 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import RequestConnectors from "./RequestConnectors";
+import ConnectorCard from "./ConnectorCard";
 
 interface Props {
   children?: ReactNode;
@@ -15,10 +17,14 @@ const ConnectorCardList = ({ children }: Props) => {
         spacingY={8}
         width={"full"}
         justifyItems={{ base: "center", xl: "left" }}
-        px={4}
       >
-        {children}
+        <ConnectorCard />
+        <ConnectorCard />
+        <ConnectorCard />
+        <ConnectorCard />
+        <ConnectorCard />
       </SimpleGrid>
+      <RequestConnectors />
     </>
   );
 };

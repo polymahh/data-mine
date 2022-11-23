@@ -7,6 +7,7 @@ import DataContext from "../../contexts/DataContext";
 import ConnectorCard from "./component/ConnectorCard";
 import ConnectorCardList from "./component/ConnectorCardList";
 import axios from "axios";
+import { RequestBannerButton } from "../../component/RequestBannerButton";
 
 const DataConnectors = () => {
   useEffect(() => {
@@ -24,13 +25,7 @@ const DataConnectors = () => {
         <Header />
         <Hero />
         <DataWrapper>
-          <ConnectorCardList>
-            <ConnectorCard />
-            <ConnectorCard />
-            <ConnectorCard />
-            <ConnectorCard />
-            <ConnectorCard />
-          </ConnectorCardList>
+          <ConnectorCardList />
         </DataWrapper>
       </VStack>
     </Box>

@@ -22,7 +22,8 @@ const DataToggle = () => {
         >
           <Tab
             px={10}
-            fontSize={"lg"}
+            noOfLines={2}
+            fontSize={["xs", "sm", "lg"]}
             fontWeight={600}
             _selected={{ borderBottom: "2px solid #6AD9C1" }}
             _hover={{ backgroundColor: "bgDark" }}
@@ -31,8 +32,9 @@ const DataToggle = () => {
             DATA SOURCES
           </Tab>
           <Tab
+            noOfLines={2}
             px={8}
-            fontSize={"lg"}
+            fontSize={["xs", "sm", "lg"]}
             fontWeight={600}
             _selected={{ borderBottom: "2px solid #6AD9C1" }}
             _hover={{ backgroundColor: "bgDark" }}

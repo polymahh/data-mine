@@ -2,6 +2,7 @@ import CategoryContainner from "./CategoryContainner";
 import { VStack } from "@chakra-ui/react";
 import { useEffect, useContext } from "react";
 import DataContext from "../../../contexts/DataContext";
+import RequestDataSources from "./RequestDataSources";
 
 const CateoryCardList = () => {
   const { categories } = useContext(DataContext);
@@ -11,13 +12,18 @@ const CateoryCardList = () => {
   }, [categories]);
 
   return (
-    <VStack width={"full"} spacing={10}>
-      {categories &&
-        categories.map(
-          (category: any) =>
-            category.items.length && <CategoryContainner category={category} />
-        )}
-    </VStack>
+    <>
+      <VStack width={"full"} spacing={10}>
+        {categories &&
+          categories.map(
+            (category: any) =>
+              category.items.length && (
+                <CategoryContainner category={category} />
+              )
+          )}
+      </VStack>
+      <RequestDataSources />
+    </>
   );
 };
 export default CateoryCardList;
