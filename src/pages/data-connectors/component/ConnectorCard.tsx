@@ -1,7 +1,10 @@
 import { Flex, Image, SimpleGrid, Text, VStack, Wrap } from "@chakra-ui/react";
+import { useEffect } from "react";
 import ConnectorTag from "./ConnectorTag";
+import TagContainner from "./TagContainner";
 
 const DataCard = () => {
+  useEffect(() => {});
   return (
     <VStack
       spacing={4}
@@ -30,9 +33,7 @@ const DataCard = () => {
         <br />
         location and GPS and ratings data.
       </Text>
-      <Wrap spacing={2} minH={"100px"} justifyContent={"end"}>
-        <ConnectorTag text={"Health and Fitness"} />
-      </Wrap>
+      <TagContainner tags={["sleep", "Health and Fitness", "security"]} />
     </VStack>
   );
 };
