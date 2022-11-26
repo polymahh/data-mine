@@ -3,10 +3,10 @@ import { Avatar, Badge, Box, Center, Text, VStack } from "@chakra-ui/react";
 
 interface Props {
   name: string;
-  img: string;
+  status: any;
 }
 
-const DataCard = ({ name, img }: Props) => {
+const DataCard = ({ name, status }: Props) => {
   return (
     <VStack
       spacing={8}
@@ -36,7 +36,7 @@ const DataCard = ({ name, img }: Props) => {
       >
         {name}
       </Text>
-      <StatusBadge />
+      <StatusBadge status={status ? status.name : "Requested"} />
     </VStack>
   );
 };

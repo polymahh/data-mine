@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { IoChevronDown } from "react-icons/io5";
 import DataContext from "../contexts/DataContext";
 
-const sortArr = ["All", "Recently Updated", "New", "Upcoming"];
+const sortArr = ["All", "Live", "Upcoming ", "Requested", "Sandbox"];
 
 const SortbyMenu = () => {
   const { sortby, setSortby } = useContext(DataContext);
@@ -41,11 +41,14 @@ const SortbyMenu = () => {
           SORT BY
         </Text>
       </MenuButton>
-      <MenuList bg={"bgItem"} border={"none"} zIndex={200} p={4}>
+      <MenuList bg={"bgItem"} border={"none"} zIndex={200} p={4} gap={2}>
         {sortArr.map((item) => (
           <MenuItem
+            borderRadius={"4px"}
+            mb={2}
+            border={item === sortby ? "2px" : "none"}
+            _hover={{ bg: "catHover" }}
             _focus={{ bg: "bgItem" }}
-            _hover={{ bg: "bgLight", border: "1px" }}
             onClick={() => setSortby(item)}
           >
             {item}

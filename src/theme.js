@@ -30,8 +30,8 @@ const theme = extendTheme({
         catHover : "#3E347B",
         searchText : "#85819E",
         searchBorder : "#332A68",
-        newTag : "#D05757",
-        updatedTag: "#8C00A3",
+        Live : "#D05757",
+        Requested: "#8C00A3",
         subTag : "#9593FFB2",
         moreTag : "#FF93FB",
 
