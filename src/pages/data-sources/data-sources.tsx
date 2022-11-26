@@ -15,6 +15,7 @@ const DataSources = () => {
     handleCategories,
     selectedCategory,
     searchVal,
+    sortby,
   } = useContext(DataContext);
 
   const getDataSources = async () => {
@@ -34,7 +35,7 @@ const DataSources = () => {
   useEffect(() => {
     console.log(dataSources);
     handleCategories();
-  }, [dataSources, selectedCategory, searchVal]);
+  }, [dataSources, selectedCategory, searchVal, sortby]);
 
   return (
     <Box textAlign="center" fontSize="xl" bg={"bgLight"} minW={"205px"}>

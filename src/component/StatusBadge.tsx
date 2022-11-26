@@ -27,7 +27,7 @@ export function StatusBadge({ status }: Props) {
       position={"absolute"}
     >
       {status === "Live Available"
-        ? "live"
+        ? "Live"
         : status === "Requested"
         ? "Requested"
         : "Upcoming"}
