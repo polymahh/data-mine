@@ -21,7 +21,7 @@ const DataCard = ({ name, img }: Props) => {
     >
       <Avatar
         name={name}
-        src={name}
+        src={`./icons/${name.toLowerCase().replace(" ", "-")}_icon.png`}
         borderRadius={"2xl"}
         width={"60px"}
         height={"60px"}
