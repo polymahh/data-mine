@@ -1,4 +1,11 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import {
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+} from "@chakra-ui/react";
 import { useContext } from "react";
 import { IoChevronDown } from "react-icons/io5";
 import DataContext from "../contexts/DataContext";
@@ -25,6 +32,14 @@ const SortbyMenu = () => {
         rightIcon={<IoChevronDown />}
       >
         {sortby}
+        <Text
+          top={"-4"}
+          position={"absolute"}
+          fontSize={"10px"}
+          fontWeight={"600"}
+        >
+          SORT BY
+        </Text>
       </MenuButton>
       <MenuList bg={"bgItem"} border={"none"} zIndex={200} p={4}>
         {sortArr.map((item) => (
