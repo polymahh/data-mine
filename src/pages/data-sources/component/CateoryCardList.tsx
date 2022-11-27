@@ -1,8 +1,9 @@
 import CategoryContainner from "./CategoryContainner";
-import { VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 import { useEffect, useContext } from "react";
 import DataContext from "../../../contexts/DataContext";
 import RequestDataSources from "./RequestDataSources";
+import SimilarDataSources from "./SimilarDataSources";
 
 const CateoryCardList = () => {
   const { categories } = useContext(DataContext);
@@ -21,8 +22,19 @@ const CateoryCardList = () => {
                 <CategoryContainner category={category} />
               )
           )}
+        {categories && categories[0].items.length === 0 && (
+          <Text color={"whiteText"} fontSize={"24px"} fontWeight={600}>
+            No Results Found
+          </Text>
+        )}
+        {!categories && (
+          <Text color={"whiteText"} fontSize={"24px"} fontWeight={600}>
+            Loading ...
+          </Text>
+        )}
       </VStack>
       <RequestDataSources />
+      {categories && categories[0].items.length === 0 && <SimilarDataSources />}
     </>
   );
 };
