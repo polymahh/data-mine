@@ -22,7 +22,7 @@ const CateoryCardList = () => {
                 <CategoryContainner category={category} />
               )
           )}
-        {categories && categories[0].items.length === 0 && (
+        {categories && categories.every((cat: any) => cat.items.length === 0) && (
           <Text color={"whiteText"} fontSize={"24px"} fontWeight={600}>
             No Results Found
           </Text>
@@ -34,7 +34,9 @@ const CateoryCardList = () => {
         )}
       </VStack>
       <RequestDataSources />
-      {categories && categories[0].items.length === 0 && <SimilarDataSources />}
+      {categories && categories.every((cat: any) => cat.items.length === 0) && (
+        <SimilarDataSources />
+      )}
     </>
   );
 };

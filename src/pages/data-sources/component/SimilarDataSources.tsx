@@ -4,7 +4,7 @@ import { Flex, Text, VStack } from "@chakra-ui/react";
 import DataCard from "./DataCard";
 
 const SimilarDataSources = () => {
-  const { similarDataSources } = useContext(DataContext);
+  const { similarDataSources } = useContext(DataContext) || [];
   return (
     <VStack gap={10}>
       <Text
@@ -21,12 +21,13 @@ const SimilarDataSources = () => {
         wrap={"wrap"}
         justify={["center", "center", "left"]}
       >
-        {similarDataSources.items.map((item: any) => (
-          <DataCard
-            name={item.Name.title[0].plain_text}
-            status={item.Status_.select}
-          />
-        ))}
+        {similarDataSources &&
+          similarDataSources.items.map((item: any) => (
+            <DataCard
+              name={item.Name.title[0].plain_text}
+              status={item.Status_.select}
+            />
+          ))}
       </Flex>
     </VStack>
   );
