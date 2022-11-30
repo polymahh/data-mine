@@ -34,6 +34,7 @@ const theme = extendTheme({
         Requested: "#8C00A3",
         subTag : "#9593FFB2",
         moreTag : "#FF93FB",
+        breadcrumb: "#A1A1A1"
 
     },
     fonts: {
