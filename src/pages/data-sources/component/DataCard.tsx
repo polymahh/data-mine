@@ -1,6 +1,7 @@
 import { StatusBadge } from "../../../component/StatusBadge";
 import { Avatar, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   name: string;
@@ -9,6 +10,8 @@ interface Props {
 
 const DataCard = ({ name, status }: Props) => {
   const [icon, setIcon] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const load = async () => {
@@ -36,6 +39,9 @@ const DataCard = ({ name, status }: Props) => {
       _hover={{ cursor: "pointer" }}
       position={"relative"}
       overflow={"hidden"}
+      onClick={() =>
+        navigate(`/data-sources/${name.toLowerCase().replace(/ /g, "-")}`)
+      }
     >
       <Avatar
         name={name}

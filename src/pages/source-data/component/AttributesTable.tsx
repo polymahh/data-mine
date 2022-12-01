@@ -228,7 +228,7 @@ const attributes = [
 ];
 
 export const AttributesTable = () => {
-  const [rows, setRows] = useState(5);
+  const [rows, setRows] = useState(10);
   const [startRange, setStartRange] = useState(1);
   const [endRange, setEndRange] = useState(rows);
   const [attributesRange, setAttributesRange] = useState<any[]>([]);
