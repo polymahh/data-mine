@@ -10,45 +10,68 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const TableRow = () => {
+interface Props {
+  attribute: any;
+}
+
+const TableRow = ({ attribute }: Props) => {
   return (
     <>
-      <Text p={4} display={{ base: "none", lg: "block" }}>
-        rmssd_5min
+      <Text
+        p={4}
+        display={{ base: "none", lg: "block" }}
+        borderBottom={"1px"}
+        borderColor={"tableBorder"}
+      >
+        {attribute.sourceAttribute}
       </Text>
-      <Text p={4} display={{ base: "none", lg: "block" }}>
-        HRV_5_rmssd
+      <Text
+        p={4}
+        display={{ base: "none", lg: "block" }}
+        borderBottom={"1px"}
+        borderColor={"tableBorder"}
+      >
+        {attribute.prifinaAttribute}
       </Text>
-      <Text p={4} display={{ base: "none", lg: "block" }}>
-        The average HRV "calculated using rMSSD method" for each beginning 5
-        minutes of the sleep period, the first period starting from
-        sleep.bedtime_start.
+      <Text
+        p={4}
+        display={{ base: "none", lg: "block" }}
+        borderBottom={"1px"}
+        borderColor={"tableBorder"}
+      >
+        {attribute.attributeDescription}
       </Text>
-      <Text p={4} display={{ base: "none", lg: "block" }}>
-        Health
+      <Text
+        p={4}
+        display={{ base: "none", lg: "block" }}
+        borderBottom={"1px"}
+        borderColor={"tableBorder"}
+      >
+        {attribute.dataCategory}
       </Text>
       <GridItem display={{ base: "block", lg: "none" }} colSpan={2}>
         <Accordion allowMultiple>
-          <AccordionItem>
+          <AccordionItem borderColor={"tableBorder"}>
             <h2>
-              <AccordionButton>
+              <AccordionButton fontSize={"12px"}>
                 <Box flex="1" textAlign="left">
-                  rmssd_5min
+                  {attribute.sourceAttribute}
                 </Box>
                 <Box flex="1" textAlign="left">
-                  HRV_5_rmssd
+                  {attribute.prifinaAttribute}
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              <Text p={4}>Attribute Description</Text>
-              <Text p={4}>
-                The average HRV "calculated using rMSSD method" for each
-                beginning 5 minutes of the sleep period, the first period
-                starting from sleep.bedtime_start.
+              <Text pb={4} color={"#FFFFFF80"}>
+                Attribute Description
               </Text>
-              <Flex justify={"space-between"}>rmssd_5min</Flex>
+              <Text pb={4}>{attribute.attributeDescription}</Text>
+              <Flex justify={"space-between"}>
+                <Text color={"#FFFFFF80"}>Data Category</Text>
+                <Text>{attribute.dataCategory}</Text>
+              </Flex>
             </AccordionPanel>
           </AccordionItem>
         </Accordion>

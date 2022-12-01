@@ -10,7 +10,12 @@ const SourceData = () => {
       <Heading color={"whiteText"} pl={20} pb={14}>
         Oura
       </Heading>
-      <VStack alignItems={"start"} width={"full"} px={{ base: 0, xl: 20 }}>
+      <VStack
+        alignItems={"start"}
+        width={"full"}
+        px={{ base: 0, xl: 20 }}
+        spacing={14}
+      >
         <Description />
         <DataAttributes />
       </VStack>

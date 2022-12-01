@@ -30,23 +30,29 @@ const Description = () => {
     <Flex
       width={"full"}
       color={"whiteText"}
-      justifyContent={"space-between"}
+      justifyContent={{ base: "space-between", "2xl": "left" }}
       alignItems={"Center"}
       direction={{ base: "column", lg: "row" }}
     >
-      <Box p={12} bg={"bgItem"} borderRadius={"xl"} mr={{ base: 0, lg: 12 }}>
+      <Box
+        p={12}
+        bg={"bgItem"}
+        borderRadius={"xl"}
+        mr={{ base: 0, lg: 12, "2xl": 48 }}
+      >
         <Avatar
           name={"Oura"}
           src={icon || ""}
           borderRadius={"2xl"}
-          width={"120px"}
-          height={"120px"}
+          width={"100px"}
+          height={"100px"}
         />
       </Box>
       <VStack
         alignItems={{ base: "center", lg: "start" }}
         gap={6}
-        py={{ base: 14, lg: 4 }}
+        pt={{ base: 14, lg: 4 }}
+        pb={4}
         pl={{ base: 0, lg: 12 }}
         borderLeft={{ base: "0px", lg: "1px" }}
       >
