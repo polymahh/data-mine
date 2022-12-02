@@ -92,6 +92,7 @@ function TableFooter({
         <Icon
           as={IoChevronBack}
           boxSize={5}
+          _hover={{ cursor: "pointer" }}
           onClick={() => {
             if (startRange - rows > 0) {
               setEndRange(endRange - rows);
@@ -102,6 +103,7 @@ function TableFooter({
         <Icon
           as={IoChevronForward}
           boxSize={5}
+          _hover={{ cursor: "pointer" }}
           onClick={() => {
             if (endRange < attributes.length) {
               setEndRange(endRange + rows);

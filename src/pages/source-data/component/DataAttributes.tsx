@@ -1,5 +1,5 @@
 import { Flex, Text, VStack } from "@chakra-ui/react";
-import { AttributesTable } from "./AttributesTable";
+import { AttributesTable } from "./data-table/AttributesTable";
 
 const DataAttributes = () => {
   return (

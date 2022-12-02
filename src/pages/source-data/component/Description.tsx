@@ -10,14 +10,24 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const Description = () => {
+interface Props {
+  name: string;
+  description: string;
+}
+
+const Description = ({ name, description }: Props) => {
+  const param = useParams();
+
   const [icon, setIcon] = useState(null);
 
   useEffect(() => {
     const load = async () => {
       try {
-        const responce = await import(`../../../assets/icons/oura_icon.png`);
+        const responce = await import(
+          `../../../assets/icons/${param.name}_icon.png`
+        );
         setIcon(responce.default);
       } catch (err) {
         setIcon(null);
@@ -41,7 +51,7 @@ const Description = () => {
         mr={{ base: 0, lg: 12, "2xl": 48 }}
       >
         <Avatar
-          name={"Oura"}
+          name={name}
           src={icon || ""}
           borderRadius={"2xl"}
           width={"100px"}
@@ -57,17 +67,14 @@ const Description = () => {
         borderLeft={{ base: "0px", lg: "1px" }}
       >
         <Text fontSize={"24px"} fontWeight={700}>
-          About Oura
+          About {name}
         </Text>
         <Text
           maxW={"530px"}
           fontSize={"18px"}
           textAlign={{ base: "center", lg: "left" }}
         >
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters.
+          {description}
         </Text>
       </VStack>
     </Flex>
