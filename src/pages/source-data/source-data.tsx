@@ -1,4 +1,4 @@
-import { Heading, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DataContext from "../../contexts/DataContext";
@@ -6,6 +6,7 @@ import { fetchData } from "../../utils/fetcher";
 import BreadCrumbs from "./component/BreadCrumbs";
 import DataAttributes from "./component/DataAttributes";
 import Description from "./component/Description";
+import SimilarDataSources from "./component/SimilarDataSources";
 
 const SourceData = () => {
   const param = useParams();
@@ -40,7 +41,7 @@ const SourceData = () => {
     } else {
       getDataSources();
     }
-  }, [categories]);
+  }, [categories, param.name]);
 
   useEffect(() => {
     handleCategories();
@@ -71,6 +72,20 @@ const SourceData = () => {
             }
           />
           <DataAttributes />
+          {categories && (
+            <>
+              <Text
+                color={"whiteText"}
+                textAlign={"left"}
+                width={"full"}
+                fontSize={"24px"}
+              >
+                Similar Data Sources
+              </Text>
+
+              <SimilarDataSources category={category} />
+            </>
+          )}
         </VStack>
       </VStack>
     ) : (

@@ -40,7 +40,7 @@ const Description = ({ name, description }: Props) => {
     <Flex
       width={"full"}
       color={"whiteText"}
-      justifyContent={{ base: "space-between", "2xl": "left" }}
+      justifyContent={{ base: "space-between", xl: "left" }}
       alignItems={"Center"}
       direction={{ base: "column", lg: "row" }}
     >
@@ -48,7 +48,7 @@ const Description = ({ name, description }: Props) => {
         p={12}
         bg={"bgItem"}
         borderRadius={"xl"}
-        mr={{ base: 0, lg: 12, "2xl": 48 }}
+        mr={{ base: 0, lg: 12, xl: 48 }}
       >
         <Avatar
           name={name}

@@ -19,6 +19,7 @@ const DataCard = ({ name, status }: Props) => {
         const responce = await import(
           `../../../assets/icons/${name
             .toLowerCase()
+            .trim()
             .replace(/ /g, "-")}_icon.png`
         );
         setIcon(responce.default);
@@ -35,12 +36,19 @@ const DataCard = ({ name, status }: Props) => {
       bgGradient="linear(to-t, bgItem, bgItemD)"
       borderRadius={"10px"}
       width={"205px"}
+      minW={"205px"}
       height={"195px"}
-      _hover={{ cursor: "pointer" }}
+      _hover={{
+        cursor: "pointer",
+        background: "bgItem",
+        boxShadow: " inset 0px 0px 0px 1px  #6AD9C1",
+      }}
       position={"relative"}
       overflow={"hidden"}
       onClick={() =>
-        navigate(`/data-sources/${name.toLowerCase().replace(/ /g, "-")}`)
+        navigate(
+          `/data-sources/${name.toLowerCase().trim().replace(/ /g, "-")}`
+        )
       }
     >
       <Avatar
@@ -57,6 +65,7 @@ const DataCard = ({ name, status }: Props) => {
         fontSize={"lg"}
         fontWeight={600}
         noOfLines={2}
+        textAlign={"center"}
       >
         {name}
       </Text>
