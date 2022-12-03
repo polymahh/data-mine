@@ -1,14 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Center,
-  Container,
-  Flex,
-  Heading,
-  HStack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Avatar, Box, Flex, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -34,7 +24,7 @@ const Description = ({ name, description }: Props) => {
       }
     };
     load();
-  }, []);
+  }, [param.name]);
 
   return (
     <Flex
