@@ -24,7 +24,7 @@ const Description = ({ name, description }: Props) => {
       }
     };
     load();
-  }, [param.name]);
+  }, [name]);
 
   return (
     <Flex

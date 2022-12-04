@@ -9,6 +9,7 @@ import {
   GridItem,
   Text,
 } from "@chakra-ui/react";
+import CategoryTag from "./CategoryTag";
 
 interface Props {
   attribute: any;
@@ -41,14 +42,16 @@ const TableRow = ({ attribute }: Props) => {
       >
         {attribute.attributeDescription}
       </Text>
-      <Text
-        p={4}
-        display={{ base: "none", lg: "block" }}
+      <Flex
+        display={{ base: "none", lg: "flex" }}
         borderBottom={"1px"}
         borderColor={"tableBorder"}
+        align={"center"}
+        justify={"center"}
+        px={2}
       >
-        {attribute.dataCategory}
-      </Text>
+        <CategoryTag name={attribute.dataCategory} />
+      </Flex>
       <GridItem display={{ base: "block", lg: "none" }} colSpan={2}>
         <Accordion allowMultiple>
           <AccordionItem borderColor={"tableBorder"}>
@@ -70,7 +73,7 @@ const TableRow = ({ attribute }: Props) => {
               <Text pb={4}>{attribute.attributeDescription}</Text>
               <Flex justify={"space-between"}>
                 <Text color={"#FFFFFF80"}>Data Category</Text>
-                <Text>{attribute.dataCategory}</Text>
+                <CategoryTag name={attribute.dataCategory} />
               </Flex>
             </AccordionPanel>
           </AccordionItem>
