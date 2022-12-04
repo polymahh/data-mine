@@ -9,8 +9,9 @@ const TableHead = () => {
         bg={"bgItem"}
         color={"#FFFFFF80"}
         borderBottom={"1px"}
+        gridColumnStart={{ base: 2, lg: 1 }}
       >
-        Source Attribute
+        Data Category
       </Text>
       <Text
         p={4}
@@ -18,6 +19,8 @@ const TableHead = () => {
         bg={"bgItem"}
         color={"#FFFFFF80"}
         borderBottom={"1px"}
+        gridColumnStart={{ base: 1, lg: 2 }}
+        gridRowStart={1}
       >
         Prifina Attribute
       </Text>
@@ -39,7 +42,7 @@ const TableHead = () => {
         borderBottom={"1px"}
         display={{ base: "none", lg: "block" }}
       >
-        Data Category
+        Users with this
       </Text>
     </>
   );
