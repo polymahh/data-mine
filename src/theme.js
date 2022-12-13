@@ -35,7 +35,9 @@ const theme = extendTheme({
         subTag : "#9593FFB2",
         moreTag : "#FF93FB",
         breadcrumb: "#A1A1A1",
-        tableBorder:"#6D659C"
+        tableBorder:"#6D659C",
+        dynamicColor:"#FF6B00",
+        menuSelect:"#958EC2"
 
     },
     fonts: {

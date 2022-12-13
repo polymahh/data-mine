@@ -1,14 +1,16 @@
 import { StatusBadge } from "../../../component/StatusBadge";
-import { Avatar, Text, VStack } from "@chakra-ui/react";
+import { Avatar, Icon, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { IoLayers } from "react-icons/io5";
 
 interface Props {
   name: string;
   status: any;
+  isDynamic: boolean;
 }
 
-const DataCard = ({ name, status }: Props) => {
+const DataCard = ({ name, status, isDynamic }: Props) => {
   const [icon, setIcon] = useState(null);
 
   const navigate = useNavigate();
@@ -70,6 +72,14 @@ const DataCard = ({ name, status }: Props) => {
         {name}
       </Text>
       <StatusBadge status={status ? status.name : "Requested"} />
+      <Icon
+        display={isDynamic ? "block" : "none"}
+        position={"absolute"}
+        top={-7}
+        right={2}
+        fill={"dynamicColor"}
+        as={IoLayers}
+      />
     </VStack>
   );
 };

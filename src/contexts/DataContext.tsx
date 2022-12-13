@@ -28,6 +28,7 @@ export function DataProvider({ children }: Props) {
   const [categories, setCategories] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState(["All"]);
   const [sortby, setSortby] = useState("All");
+  const [filter, setFilter] = useState("All");
   const [searchVal, setSearchVal] = useState("");
 
   const handleDataSources = (data: any) => {
@@ -159,6 +160,8 @@ export function DataProvider({ children }: Props) {
         searchVal,
         setSearchVal,
         similarDataSources,
+        filter,
+        setFilter,
       }}
     >
       {children}

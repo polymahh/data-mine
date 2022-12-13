@@ -28,14 +28,15 @@ const DataAttributes = ({ sourceID }: Props) => {
   return (
     <VStack width={"full"} alignItems={"start"} color={"whiteText"}>
       <Flex fontSize={"lg"} p={4} pt={0} gap={2}>
-        {attributes ? (
+        {attributes == null && <Text>Loading Data Attributes ... </Text>}
+
+        {attributes && attributes[0] && (
           <>
             <Text>Data Attributes</Text>
             <Text color={"primary"}>({attributes.length})</Text>
           </>
-        ) : (
-          <Text>No Attributes Availabale</Text>
         )}
+        {attributes && !attributes[0] && <Text>No Attributes Availabale</Text>}
       </Flex>
 
       {attributes && <AttributesTable attributes={attributes} />}

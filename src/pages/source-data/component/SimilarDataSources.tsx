@@ -100,6 +100,7 @@ const SimilarDataSources = ({ category }: Props) => {
             <DataCard
               name={item.Name.title[0].plain_text}
               status={item.Status_.select}
+              isDynamic={item["Dynamic Data"].has_more}
             />
           ))}
       </Flex>
