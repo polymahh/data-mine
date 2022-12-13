@@ -20,7 +20,7 @@ const DataSources = () => {
 
   const getDataSources = async () => {
     const data = await fetchData(
-      "https://prifina-data-mine.vercel.app/data-sources"
+      "https://prifina-data-mine.vercel.app/data-sources/"
     );
     handleDataSources(data);
   };

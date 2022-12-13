@@ -14,6 +14,7 @@ const SourceData = () => {
   const { categories, handleDataSources, handleCategories, dataSources } =
     useContext(DataContext);
 
+  // fetch data sources if for some reson the DataContext has no data
   const getDataSources = async () => {
     const data = await fetchData(
       "https://prifina-data-mine.vercel.app/data-sources"
@@ -71,7 +72,7 @@ const SourceData = () => {
               filtred?.Description.rich_text[0]?.plain_text || "Coming Soon ..."
             }
           />
-          <DataAttributes />
+          <DataAttributes sourceID={filtred.Source_id.formula.string} />
           {categories && (
             <>
               <Text

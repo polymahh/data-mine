@@ -1,4 +1,5 @@
 import { Flex, Text, VStack } from "@chakra-ui/react";
+import { fetchData } from "../../../utils/fetcher";
 import { AttributesTable } from "./connector-table/AttributesTable";
 
 const DataAttributes = () => {

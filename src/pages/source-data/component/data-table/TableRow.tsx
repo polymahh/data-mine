@@ -24,7 +24,7 @@ const TableRow = ({ attribute }: Props) => {
         borderBottom={"1px"}
         borderColor={"tableBorder"}
       >
-        {attribute.sourceAttribute}
+        {attribute.properties["Attribute Name"].title[0].plain_text}
       </Text>
       <Text
         p={4}
@@ -32,7 +32,7 @@ const TableRow = ({ attribute }: Props) => {
         borderBottom={"1px"}
         borderColor={"tableBorder"}
       >
-        {attribute.prifinaAttribute}
+        {attribute.properties["Attribute Name"].title[0].plain_text}
       </Text>
       <Text
         p={4}
@@ -40,7 +40,9 @@ const TableRow = ({ attribute }: Props) => {
         borderBottom={"1px"}
         borderColor={"tableBorder"}
       >
-        {attribute.attributeDescription}
+        {attribute.properties["Attribute description"]?.rich_text.map(
+          (text: any) => <Text>{text.plain_text}</Text>
+        ) || ""}
       </Text>
       <Flex
         display={{ base: "none", lg: "flex" }}
@@ -50,18 +52,19 @@ const TableRow = ({ attribute }: Props) => {
         justify={"center"}
         px={2}
       >
-        <CategoryTag name={attribute.dataCategory} />
+        <CategoryTag name={"Health"} />
       </Flex>
+      {/* below is a row for smaller screen  */}
       <GridItem display={{ base: "block", lg: "none" }} colSpan={2}>
         <Accordion allowMultiple>
           <AccordionItem borderColor={"tableBorder"}>
             <h2>
               <AccordionButton fontSize={"12px"}>
                 <Box flex="1" textAlign="left">
-                  {attribute.sourceAttribute}
+                  properties
                 </Box>
                 <Box flex="1" textAlign="left">
-                  {attribute.prifinaAttribute}
+                  {attribute.properties["Attribute Name"].title[0].plain_text}
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
@@ -70,10 +73,10 @@ const TableRow = ({ attribute }: Props) => {
               <Text pb={4} color={"#FFFFFF80"}>
                 Attribute Description
               </Text>
-              <Text pb={4}>{attribute.attributeDescription}</Text>
+              <Text pb={4}>attributeDescription</Text>
               <Flex justify={"space-between"}>
                 <Text color={"#FFFFFF80"}>Data Category</Text>
-                <CategoryTag name={attribute.dataCategory} />
+                <CategoryTag name={"health"} />
               </Flex>
             </AccordionPanel>
           </AccordionItem>
