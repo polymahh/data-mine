@@ -113,6 +113,38 @@ export function DataProvider({ children }: Props) {
           return filtered;
         });
 
+  const sortbyFilter =
+    filter === "All"
+      ? sortbySearch
+      : filter === "Dynamic Data"
+      ? sortbySearch.map((category: any) => {
+          const filtered =
+            category.items.length > 0
+              ? {
+                  name: category.name,
+                  items: [
+                    ...category.items.filter(
+                      (item: any) => item["Dynamic Data"].has_more
+                    ),
+                  ],
+                }
+              : category;
+          return filtered;
+        })
+      : sortbySearch.map((category: any) => {
+          const filtered =
+            category.items.length > 0
+              ? {
+                  name: category.name,
+                  items: [
+                    ...category.items.filter(
+                      (item: any) => item["Dynamic Data"].has_more === false
+                    ),
+                  ],
+                }
+              : category;
+          return filtered;
+        });
   const handleCategories = () => {
     if (dataSources && categories == null) {
       [...dataSources].map((source: any) => {
@@ -136,6 +168,9 @@ export function DataProvider({ children }: Props) {
       }
       if (searchVal !== "") {
         setCategories(sortbySearch);
+      }
+      if (filter !== "All") {
+        setCategories(sortbyFilter);
       }
     }
   };
