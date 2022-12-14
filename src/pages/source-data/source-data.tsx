@@ -6,6 +6,8 @@ import { fetchData } from "../../utils/fetcher";
 import BreadCrumbs from "./component/BreadCrumbs";
 import DataAttributes from "./component/DataAttributes";
 import Description from "./component/Description";
+import IsDynamic from "./component/IsDynamic";
+import Links from "./component/Links";
 import SimilarDataSources from "./component/SimilarDataSources";
 
 const SourceData = () => {
@@ -57,14 +59,15 @@ const SourceData = () => {
     filtred ? (
       <VStack alignItems={"start"} py={8} px={[4, 6, 10, 10, 12, 20]}>
         <BreadCrumbs name={name} category={category} />
-        <Heading color={"whiteText"} pl={20} pb={14}>
-          {name}
-        </Heading>
+        <Flex gap={6} alignItems={"center"} pl={20} pb={14}>
+          <Heading color={"whiteText"}>{name}</Heading>
+          <IsDynamic dynamic={filtred?.["Dynamic Data"].has_more} />
+        </Flex>
         <VStack
           alignItems={"start"}
           width={"full"}
           px={{ base: 0, xl: 20 }}
-          spacing={14}
+          spacing={20}
         >
           <Description
             name={name}
@@ -72,6 +75,11 @@ const SourceData = () => {
               filtred?.Description.rich_text[0]?.plain_text || "Coming Soon ..."
             }
           />
+          <Links
+            docs={filtred?.["Source docs URL"].url || "Not Available"}
+            api={"Not Available"}
+          />
+
           <DataAttributes sourceID={filtred.Source_id.formula.string} />
           {categories && (
             <>

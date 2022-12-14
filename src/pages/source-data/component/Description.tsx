@@ -52,7 +52,6 @@ const Description = ({ name, description }: Props) => {
         alignItems={{ base: "center", lg: "start" }}
         gap={6}
         pt={{ base: 14, lg: 4 }}
-        pb={4}
         pl={{ base: 0, lg: 12 }}
         borderLeft={{ base: "0px", lg: "1px" }}
       >
@@ -65,6 +64,14 @@ const Description = ({ name, description }: Props) => {
           textAlign={{ base: "center", lg: "left" }}
         >
           {description}
+          <Text
+            pt={4}
+            color={"linkText"}
+            fontSize={"18px"}
+            textAlign={{ base: "center", lg: "left" }}
+          >
+            https://ouraring.com/
+          </Text>
         </Text>
       </VStack>
     </Flex>

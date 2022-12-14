@@ -27,6 +27,7 @@ const theme = extendTheme({
         bgItemD : "#1E126750",
         whiteText : "#F6F6F6",
         grayText : "#838383",
+        linkText:"#5792F3",
         catHover : "#3E347B",
         searchText : "#85819E",
         searchBorder : "#332A68",

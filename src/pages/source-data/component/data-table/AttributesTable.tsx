@@ -263,6 +263,7 @@ export const AttributesTable = ({ attributes }: Props) => {
       width={"full"}
       bg={"bgItemD"}
       fontSize={"12px"}
+      shadow={"xs"}
     >
       <TableHead />
       {attributesRange.map((attribute) => (
