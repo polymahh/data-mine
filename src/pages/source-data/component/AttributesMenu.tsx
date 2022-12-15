@@ -40,7 +40,7 @@ const AttributesMenu = ({ zoom, setZoom }: Props) => {
           Zoom
         </Button>
       </Flex>
-      <PeriodMenu />
+      {zoom && <PeriodMenu />}
     </HStack>
   );
 };

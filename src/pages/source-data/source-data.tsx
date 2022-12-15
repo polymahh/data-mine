@@ -8,6 +8,7 @@ import DataAttributes from "./component/DataAttributes";
 import Description from "./component/Description";
 import IsDynamic from "./component/IsDynamic";
 import Links from "./component/Links";
+import RelatedApps from "./component/RelatedApps";
 import SimilarDataSources from "./component/SimilarDataSources";
 
 const SourceData = () => {
@@ -57,9 +58,15 @@ const SourceData = () => {
 
   return categories ? (
     filtred ? (
-      <VStack alignItems={"start"} py={8} px={[4, 6, 10, 10, 12, 20]}>
+      <VStack alignItems={"start"} py={8} px={[2, 4, 10, 10, 12, 20]}>
         <BreadCrumbs name={name} category={category} />
-        <Flex gap={6} alignItems={"center"} pl={20} pb={14}>
+        <Flex
+          gap={[2, 2, 6]}
+          alignItems={"center"}
+          pl={[4, 20]}
+          pb={14}
+          flexWrap={"wrap"}
+        >
           <Heading color={"whiteText"}>{name}</Heading>
           <IsDynamic dynamic={filtred?.["Dynamic Data"].has_more} />
         </Flex>
@@ -81,6 +88,30 @@ const SourceData = () => {
           />
 
           <DataAttributes sourceID={filtred.Source_id.formula.string} />
+
+          <Flex gap={2} alignItems={"center"}>
+            <Text color={"whiteText"} fontSize={"20px"} fontWeight={600}>
+              Resources:
+            </Text>
+            <Text color={"linkText"} fontSize={"18px"}>
+              https://www.prifina.com/blog
+            </Text>
+          </Flex>
+
+          {/* related apps */}
+          <VStack gap={6}>
+            <Text
+              color={"whiteText"}
+              textAlign={"left"}
+              width={"full"}
+              fontSize={"24px"}
+            >
+              Related Apps
+            </Text>
+            <RelatedApps relatedApps={filtred?.relatedApps.formula.string} />
+          </VStack>
+
+          {/* similar data sources */}
           {categories && (
             <>
               <Text

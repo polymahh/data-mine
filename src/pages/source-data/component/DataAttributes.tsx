@@ -18,7 +18,24 @@ const DataAttributes = ({ sourceID }: Props) => {
     const data = await fetchData(
       `https://prifina-data-mine.vercel.app/data-sources/${sourceID}`
     );
-    setAttributes(data.results);
+    let arr = data.results;
+    setAttributes(arr);
+
+    if (data.has_more) {
+      getNextCursor(data.next_cursor, arr);
+    }
+  };
+
+  const getNextCursor = async (id: string, prev: any) => {
+    const data = await fetchData(
+      `https://prifina-data-mine.vercel.app/data-sources/${sourceID}/${id}`
+    );
+    let arr = [...prev, ...data.results];
+
+    setAttributes(arr);
+    if (data.has_more) {
+      getNextCursor(data.next_cursor, arr);
+    }
   };
 
   useEffect(() => {
