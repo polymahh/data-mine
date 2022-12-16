@@ -13,11 +13,13 @@ const SimilarDataSources = ({ category }: Props) => {
   const [isScroll, setIsScroll] = useState(false);
   const refScroll = useRef<any>();
 
-  const { categories } = useContext(DataContext);
+  const { dataSources } = useContext(DataContext);
 
-  const similarDataSources = categories.find(
-    (cat: any) => cat.name === category
-  );
+  const similarDataSources =
+    [...dataSources].filter((source: any) =>
+      source.Categories.multi_select.find((item: any) => item.name == category)
+    ) || [];
+
   useEffect(() => {
     if (
       refScroll.current.scrollWidth >
@@ -96,7 +98,7 @@ const SimilarDataSources = ({ category }: Props) => {
         }}
       >
         {similarDataSources &&
-          similarDataSources.items.map((item: any) => (
+          similarDataSources.map((item: any) => (
             <DataCard
               name={item.Name.title[0].plain_text}
               status={item.Status_.select}

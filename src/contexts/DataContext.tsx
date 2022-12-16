@@ -26,7 +26,7 @@ interface Props {
 export function DataProvider({ children }: Props) {
   const [dataSources, setDataSources] = useState(null);
   const [categories, setCategories] = useState<any>(null);
-  const [selectedCategory, setSelectedCategory] = useState(["All"]);
+  const [selectedCategory, setSelectedCategory] = useState<[string]>(["All"]);
   const [sortby, setSortby] = useState("All");
   const [filter, setFilter] = useState("All");
   const [searchVal, setSearchVal] = useState("");
