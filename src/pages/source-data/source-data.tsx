@@ -26,20 +26,14 @@ const SourceData = () => {
   };
 
   useEffect(() => {
-    if (categories) {
-      const val =
-        categories &&
-        categories
-          .map((cat: any) =>
-            cat.items.find((item: any) =>
-              item.Name.title[0].plain_text
-                .toLowerCase()
-                .trim()
-                .replace(/ /g, "-")
-                .includes(param.name)
-            )
-          )
-          .find((item: any) => item);
+    if (dataSources) {
+      const val = dataSources.find((item: any) =>
+        item.Name.title[0].plain_text
+          .toLowerCase()
+          .trim()
+          .replace(/ /g, "-")
+          .includes(param.name)
+      );
       setFiltred(val);
       console.log(filtred);
     } else {
