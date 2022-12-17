@@ -3,6 +3,7 @@ import { Avatar, Icon, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoLayers } from "react-icons/io5";
+import DynamicIcon from "../../../assets/DynamicIcon";
 
 interface Props {
   name: string;
@@ -72,13 +73,20 @@ const DataCard = ({ name, status, isDynamic }: Props) => {
         {name}
       </Text>
       <StatusBadge status={status ? status.name : "Requested"} />
-      <Icon
+      {/* <Icon
         display={isDynamic ? "block" : "none"}
         position={"absolute"}
         top={-7}
         right={2}
         fill={"dynamicColor"}
         as={IoLayers}
+      /> */}
+      <DynamicIcon
+        display={isDynamic ? "block" : "none"}
+        position={"absolute"}
+        top={-7}
+        right={2}
+        color={"dynamicColor"}
       />
     </VStack>
   );

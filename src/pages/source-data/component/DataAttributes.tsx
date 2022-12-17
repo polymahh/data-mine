@@ -39,11 +39,12 @@ const DataAttributes = ({ sourceID }: Props) => {
   };
 
   useEffect(() => {
-    if (mounted.current && attributes == null) {
+    setAttributes(null);
+    if (mounted) {
       mounted.current = false;
       getAttributes();
-    } else console.log("attributes are here");
-  }, []);
+    } else console.log("data called");
+  }, [sourceID]);
 
   return (
     <VStack width={"full"} alignItems={"start"} color={"whiteText"}>

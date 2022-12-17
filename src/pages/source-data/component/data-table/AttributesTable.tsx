@@ -238,11 +238,10 @@ export const AttributesTable = ({ attributes }: Props) => {
   const [endRange, setEndRange] = useState(rows);
   const [attributesRange, setAttributesRange] = useState<any[]>([]);
 
-  console.log(attributes);
-
   const param = useParams();
 
   useEffect(() => {
+    console.log("called attributes", attributes);
     const arr = attributes.slice(startRange - 1, endRange);
     setAttributesRange(arr);
   }, [rows, startRange]);
@@ -252,7 +251,7 @@ export const AttributesTable = ({ attributes }: Props) => {
     setEndRange(rows);
     const arr = attributes.slice(0, rows);
     setAttributesRange(arr);
-  }, [param.name]);
+  }, [param.name, attributes]);
 
   return (
     <Grid
@@ -266,7 +265,7 @@ export const AttributesTable = ({ attributes }: Props) => {
       shadow={"xs"}
     >
       <TableHead />
-      {attributesRange.map((attribute) => (
+      {attributesRange.map((attribute: any) => (
         <TableRow attribute={attribute} />
       ))}
       <TableFooter
