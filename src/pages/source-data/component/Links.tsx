@@ -7,16 +7,31 @@ interface Props {
 
 const Links = ({ docs, api }: Props) => {
   return (
-    <VStack color={"whiteText"} fontSize={"20px"} alignItems={"left"}>
-      <Flex gap={2} alignItems={"center"}>
-        Source Docs:{" "}
-        <Text color={"linkText"} fontSize={"18px"}>
+    <VStack
+      color={"whiteText"}
+      fontSize={"20px"}
+      alignItems={"left"}
+      width={"full"}
+    >
+      <Flex
+        gap={2}
+        alignItems={"center"}
+        justifyContent={["center", "left"]}
+        flexWrap={["wrap", "nowrap"]}
+      >
+        <Text whiteSpace={"nowrap"}>Source Docs: </Text>
+        <Text noOfLines={1} color={"linkText"} fontSize={"18px"}>
           {docs}
         </Text>
       </Flex>
-      <Flex gap={2} alignItems={"center"}>
+      <Flex
+        gap={2}
+        alignItems={"center"}
+        justifyContent={["center", "left"]}
+        flexWrap={["wrap", "nowrap"]}
+      >
         API:{" "}
-        <Text color={"linkText"} fontSize={"18px"}>
+        <Text noOfLines={1} color={"linkText"} fontSize={"18px"}>
           {api}
         </Text>
       </Flex>

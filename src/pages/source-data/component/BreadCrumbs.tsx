@@ -16,7 +16,7 @@ const BreadCrumbs = ({ name, category }: Props) => {
       alignItems={"center"}
       color={"breadcrumb"}
       fontSize={["14px", "16px"]}
-      flexWrap={["wrap", "nowrap"]}
+      flexWrap={["wrap", "wrap", "nowrap"]}
     >
       <Icon
         as={IoArrowBack}
@@ -29,9 +29,11 @@ const BreadCrumbs = ({ name, category }: Props) => {
       />
       <Text noOfLines={1}>Data Source</Text>
       <Icon as={IoChevronForward} />
-      <Text>{category}</Text>
+      <Text noOfLines={1}>{category}</Text>
       <Icon as={IoChevronForward} />
-      <Text color={"whiteText"}>{name}</Text>
+      <Text noOfLines={1} color={"whiteText"}>
+        {name}
+      </Text>
     </Flex>
   );
 };

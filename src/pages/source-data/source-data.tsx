@@ -57,11 +57,18 @@ const SourceData = () => {
         <Flex
           gap={[2, 2, 6]}
           alignItems={"center"}
+          justifyContent={["center", "left"]}
           pl={[4, 20]}
           pb={14}
           flexWrap={"wrap"}
         >
-          <Heading color={"whiteText"}>{name}</Heading>
+          <Heading
+            textAlign={"center"}
+            color={"whiteText"}
+            fontSize={["24px", "36px"]}
+          >
+            {name}
+          </Heading>
           <IsDynamic dynamic={filtred?.["Dynamic Data"].has_more} />
         </Flex>
         <VStack
@@ -83,11 +90,17 @@ const SourceData = () => {
 
           <DataAttributes sourceID={filtred.Source_id.formula.string} />
 
-          <Flex gap={2} alignItems={"center"}>
+          <Flex
+            gap={2}
+            alignItems={"center"}
+            justifyContent={["center", "left"]}
+            flexWrap={["wrap", "nowrap"]}
+            width={"full"}
+          >
             <Text color={"whiteText"} fontSize={"20px"} fontWeight={600}>
               Resources:
             </Text>
-            <Text color={"linkText"} fontSize={"18px"}>
+            <Text noOfLines={1} color={"linkText"} fontSize={"18px"}>
               https://www.prifina.com/blog
             </Text>
           </Flex>
