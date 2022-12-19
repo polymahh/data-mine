@@ -57,10 +57,12 @@ const SourceData = () => {
         <Flex
           gap={[2, 2, 6]}
           alignItems={"center"}
-          justifyContent={["center", "left"]}
-          pl={[4, 20]}
+          justifyContent={["center", "center", "left"]}
+          pl={{ base: 0, md: 20 }}
           pb={14}
+          width={"full"}
           flexWrap={"wrap"}
+          direction={["column", "column", "row"]}
         >
           <Heading
             textAlign={"center"}
@@ -88,7 +90,10 @@ const SourceData = () => {
             api={"Not Available"}
           />
 
-          <DataAttributes sourceID={filtred.Source_id.formula.string} />
+          <DataAttributes
+            sourceID={filtred.Source_id.formula.string}
+            filtred={filtred && filtred}
+          />
 
           <Flex
             gap={2}

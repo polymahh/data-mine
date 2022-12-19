@@ -241,17 +241,18 @@ export const AttributesTable = ({ attributes }: Props) => {
   const param = useParams();
 
   useEffect(() => {
-    console.log("called attributes", attributes);
     const arr = attributes.slice(startRange - 1, endRange);
     setAttributesRange(arr);
   }, [rows, startRange]);
 
   useEffect(() => {
+    console.log("called attributes", attributes);
+
     setStartRange(1);
     setEndRange(rows);
     const arr = attributes.slice(0, rows);
     setAttributesRange(arr);
-  }, [param.name, attributes]);
+  }, [attributes]);
 
   return (
     <Grid

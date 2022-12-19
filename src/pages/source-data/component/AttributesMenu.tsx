@@ -13,6 +13,8 @@ const AttributesMenu = ({ zoom, setZoom }: Props) => {
       justifyContent={"space-between"}
       alignItems={"center"}
       mb={14}
+      gap={4}
+      wrap={["wrap", "nowrap"]}
     >
       <Flex gap={4}>
         <Button

@@ -7,9 +7,10 @@ import { ZoomTable } from "./zoom-table/ZoomTable";
 
 interface Props {
   sourceID: string;
+  filtred: any;
 }
 
-const DataAttributes = ({ sourceID }: Props) => {
+const DataAttributes = ({ sourceID, filtred }: Props) => {
   const mounted = useRef(true);
   const [attributes, setAttributes] = useState<any>(null);
   const [zoom, setZoom] = useState<boolean>(false);
@@ -65,7 +66,9 @@ const DataAttributes = ({ sourceID }: Props) => {
 
       <Center bg={"bgItem"} px={4} py={2} w={"full"}>
         {attributes && !zoom && <AttributesTable attributes={attributes} />}
-        {attributes && zoom && <ZoomTable />}
+        {attributes && zoom && (
+          <ZoomTable attributes={attributes} filtred={filtred} />
+        )}
       </Center>
     </VStack>
   );
