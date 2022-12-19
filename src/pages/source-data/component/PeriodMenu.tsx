@@ -15,6 +15,7 @@ const PeriodMenu = () => {
   return (
     <>
       <Tabs
+        index={periodArr.findIndex((item) => item === period)}
         borderBottomColor={"#130C45"}
         display={{ base: "none", lg: "flex" }}
       >
@@ -29,6 +30,7 @@ const PeriodMenu = () => {
                 backgroundColor: "catHover",
                 borderBottom: "6px solid #ffffff",
               }}
+              onClick={() => setPeriod(tab)}
             >
               {tab}
             </Tab>
