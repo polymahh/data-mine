@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import CategoryTag from "../data-table/CategoryTag";
 
 interface Props {
@@ -8,39 +8,55 @@ interface Props {
 const ZoomRow = ({ attribute }: Props) => {
   return (
     <>
-      <Text
-        p={4}
-        display={{ base: "none", lg: "block" }}
-        borderBottom={"1px"}
-        borderColor={"tableBorder"}
-      >
-        {attribute.sourceAttribute}
-      </Text>
-      <Text
-        p={4}
-        display={{ base: "none", lg: "block" }}
-        borderBottom={"1px"}
-        borderColor={"tableBorder"}
-      >
-        {attribute.prifinaAttribute}
-      </Text>
-      <Text
-        p={4}
-        display={{ base: "none", lg: "block" }}
-        borderBottom={"1px"}
-        borderColor={"tableBorder"}
-      >
-        {attribute.Aggregate}
-      </Text>
       <Flex
-        display={{ base: "none", lg: "flex" }}
+        p={4}
+        borderRight={"1px"}
         borderBottom={"1px"}
+        borderColor={"tableBorder"}
+        alignItems={"center"}
+      >
+        <Text
+          transform={"rotate(180deg)"}
+          sx={{
+            "writing-mode": "tb-rl",
+          }}
+          fontWeight={600}
+          letterSpacing={"1px"}
+          opacity={"70%"}
+        >
+          {attribute.objectName}
+        </Text>
+      </Flex>
+      <GridItem colSpan={3} borderBottom={"1px"} borderColor={"tableBorder"}>
+        {attribute.att.map((obj: any) => (
+          <Grid
+            gridTemplateColumns={"1fr 1fr 1fr "}
+            width={"full"}
+            bg={"bgItemD"}
+            fontSize={"12px"}
+            opacity={"70%"}
+          >
+            <Text p={4}>
+              {obj.properties["Attribute Name"].title[0]["plain_text"]}
+            </Text>
+            <Text p={4}>
+              {obj.properties["Attribute Name"].title[0]["plain_text"]}
+            </Text>
+            <Text p={4}>obj.Aggregate</Text>
+          </Grid>
+        ))}
+      </GridItem>
+      <Flex
+        borderBottom={"1px"}
+        borderLeft={"1px"}
         borderColor={"tableBorder"}
         align={"center"}
-        justify={"center"}
+        justify={"left"}
         px={2}
       >
-        <CategoryTag name={attribute.dataCategory} />
+        <Center pt={6} alignSelf={"flex-start"}>
+          <CategoryTag name={"Health"} />
+        </Center>
       </Flex>
     </>
   );

@@ -36,7 +36,7 @@ const DataCard = ({ name, status, isDynamic }: Props) => {
     <VStack
       spacing={8}
       pt={10}
-      bgGradient="linear(to-t, bgItem, bgItemD)"
+      bgGradient="linear(to-t, bgItem, #1E126730)"
       borderRadius={"10px"}
       width={"205px"}
       minW={"205px"}

@@ -1,79 +1,9 @@
 import { Grid } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-import { useParams } from "react-router-dom";
-import { isTemplateExpression } from "typescript";
+import ZoomFooter from "./ZoomFooter";
 import ZoomHead from "./ZoomHead";
 import ZoomRow from "./ZoomRow";
-
-const attributes = [
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Health",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Health",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Health",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Health",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Sleep",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Sleep",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Sleep",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Sleep",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Sleep",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Sleep",
-  },
-  {
-    sourceAttribute: "Main attribute",
-    prifinaAttribute: "Prifina Attribute",
-    Aggregate: "Mean = Values  ",
-    dataCategory: "Sleep",
-  },
-];
 
 interface Props {
   attributes: any;
@@ -81,48 +11,43 @@ interface Props {
 }
 
 export const ZoomTable = ({ attributes, filtred }: Props) => {
-  const [zoomAttributes, setZoomAttributes] = useState(null);
+  // const [zoomAttributes, setZoomAttributes] = useState<any[]>([]);
   const [rows, setRows] = useState(10);
   const [startRange, setStartRange] = useState(1);
   const [endRange, setEndRange] = useState(rows);
   const [attributesRange, setAttributesRange] = useState<any[]>([]);
 
-  const getAttributes = () => {
-    return filtred.dataObjectsNames.formula.string
-      .split(",")
-      .map((item: string, idx: number) => {
-        return {
-          objectName: item,
-          Objectid: filtred["Data Objects (All)"].relation[idx].id,
-          att: attributes.filter((item: any) =>
-            item.properties["Object(s) using this"].relation.find(
-              (obj: any) =>
-                obj.id === filtred["Data Objects (All)"].relation[idx].id
-            )
-          ),
-        };
-      });
-  };
+  const zoomAttributes = filtred.dataObjectsNames.formula.string
+    .split(",")
+    .map((item: string, idx: number) => {
+      return {
+        objectName: item,
+        Objectid: filtred["Data Objects (All)"].relation[idx].id,
+        att: attributes.filter((item: any) =>
+          item.properties["Object(s) using this"].relation.find(
+            (obj: any) =>
+              obj.id === filtred["Data Objects (All)"].relation[idx].id
+          )
+        ),
+      };
+    });
 
   useEffect(() => {
-    const arr = attributes.slice(startRange - 1, endRange);
+    const arr = zoomAttributes.slice(startRange - 1, endRange);
     setAttributesRange(arr);
   }, [rows, startRange]);
 
   useEffect(() => {
     setStartRange(1);
     setEndRange(rows);
-    const arr = attributes.slice(0, rows);
+    const arr = zoomAttributes.slice(0, rows);
     setAttributesRange(arr);
-    console.log(getAttributes());
+    console.log(zoomAttributes);
   }, [attributes]);
 
   return (
     <Grid
-      gridTemplateColumns={{
-        base: "1fr 1fr",
-        lg: "1fr 1fr minmax(auto, 540px) 1fr",
-      }}
+      gridTemplateColumns={"auto 1fr 1fr 1fr auto"}
       width={"full"}
       bg={"bgItemD"}
       fontSize={"12px"}
@@ -132,6 +57,15 @@ export const ZoomTable = ({ attributes, filtred }: Props) => {
       {attributesRange.map((attribute) => (
         <ZoomRow attribute={attribute} />
       ))}
+      <ZoomFooter
+        rows={rows}
+        setRows={setRows}
+        startRange={startRange}
+        setStartRange={setStartRange}
+        endRange={endRange}
+        setEndRange={setEndRange}
+        attributes={zoomAttributes}
+      />
     </Grid>
   );
 };

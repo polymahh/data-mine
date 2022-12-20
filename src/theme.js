@@ -24,7 +24,7 @@ const theme = extendTheme({
         bgDark : "#09003D",
         bgLight : "#130C45",
         bgItem : "#1E1267",
-        bgItemD : "#1E126750",
+        bgItemD : "#1A105C",
         whiteText : "#F6F6F6",
         grayText : "#838383",
         linkText:"#5792F3",

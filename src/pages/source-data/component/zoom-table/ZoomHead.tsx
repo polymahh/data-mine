@@ -10,6 +10,15 @@ const ZoomHead = () => {
         color={"#FFFFFF80"}
         borderBottom={"1px"}
       >
+        {" "}
+      </Text>
+      <Text
+        p={4}
+        whiteSpace={"nowrap"}
+        bg={"bgItem"}
+        color={"#FFFFFF80"}
+        borderBottom={"1px"}
+      >
         Source Attribute
       </Text>
       <Text
@@ -27,9 +36,8 @@ const ZoomHead = () => {
         bg={"bgItem"}
         color={"#FFFFFF80"}
         borderBottom={"1px"}
-        display={{ base: "none", lg: "block" }}
       >
-        Attribute Description
+        Aggregate
       </Text>
       <Text
         p={4}
@@ -37,7 +45,6 @@ const ZoomHead = () => {
         bg={"bgItem"}
         color={"#FFFFFF80"}
         borderBottom={"1px"}
-        display={{ base: "none", lg: "block" }}
       >
         Data Category
       </Text>
