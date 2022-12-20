@@ -1,4 +1,4 @@
-import { Flex, Text, VStack } from "@chakra-ui/react";
+import { Flex, Link, Text, VStack } from "@chakra-ui/react";
 
 interface Props {
   docs: string;
@@ -20,9 +20,15 @@ const Links = ({ docs, api }: Props) => {
         flexWrap={["wrap", "nowrap"]}
       >
         <Text whiteSpace={"nowrap"}>Source Docs: </Text>
-        <Text noOfLines={1} color={"linkText"} fontSize={"18px"}>
+        <Link
+          noOfLines={1}
+          color={"linkText"}
+          fontSize={"18px"}
+          href={docs}
+          isExternal
+        >
           {docs}
-        </Text>
+        </Link>
       </Flex>
       <Flex
         gap={2}
@@ -31,9 +37,9 @@ const Links = ({ docs, api }: Props) => {
         flexWrap={["wrap", "nowrap"]}
       >
         API:{" "}
-        <Text noOfLines={1} color={"linkText"} fontSize={"18px"}>
+        <Link noOfLines={1} color={"linkText"} fontSize={"18px"} isExternal>
           {api}
-        </Text>
+        </Link>
       </Flex>
     </VStack>
   );

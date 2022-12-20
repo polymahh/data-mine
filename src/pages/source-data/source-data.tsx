@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Link, Text, VStack } from "@chakra-ui/react";
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DataContext from "../../contexts/DataContext";
@@ -105,9 +105,15 @@ const SourceData = () => {
             <Text color={"whiteText"} fontSize={"20px"} fontWeight={600}>
               Resources:
             </Text>
-            <Text noOfLines={1} color={"linkText"} fontSize={"18px"}>
+            <Link
+              noOfLines={1}
+              color={"linkText"}
+              fontSize={"18px"}
+              href={"https://www.prifina.com/blog"}
+              isExternal
+            >
               https://www.prifina.com/blog
-            </Text>
+            </Link>
           </Flex>
 
           {/* related apps */}

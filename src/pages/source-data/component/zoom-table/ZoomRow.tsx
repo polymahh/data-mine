@@ -1,4 +1,16 @@
-import { Box, Center, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Center,
+  Flex,
+  Grid,
+  GridItem,
+  Text,
+} from "@chakra-ui/react";
 import CategoryTag from "../data-table/CategoryTag";
 
 interface Props {
@@ -27,26 +39,89 @@ const ZoomRow = ({ attribute }: Props) => {
           {attribute.objectName}
         </Text>
       </Flex>
-      <GridItem colSpan={3} borderBottom={"1px"} borderColor={"tableBorder"}>
+      <GridItem
+        colSpan={{ base: 4, lg: 3 }}
+        borderBottom={"1px"}
+        borderColor={"tableBorder"}
+      >
         {attribute.att.map((obj: any) => (
           <Grid
-            gridTemplateColumns={"1fr 1fr 1fr "}
+            gridTemplateColumns={{
+              base: "1fr ",
+              lg: "1fr 1fr 1fr",
+            }}
             width={"full"}
             bg={"bgItemD"}
             fontSize={"12px"}
             opacity={"70%"}
           >
-            <Text p={4}>
+            <Text p={4} display={{ base: "none", lg: "block" }}>
               {obj.properties["Attribute Name"].title[0]["plain_text"]}
             </Text>
-            <Text p={4}>
+            <Text p={4} display={{ base: "none", lg: "block" }}>
               {obj.properties["Attribute Name"].title[0]["plain_text"]}
             </Text>
-            <Text p={4}>obj.Aggregate</Text>
+            <Text p={4} display={{ base: "none", lg: "block" }}>
+              obj.Aggregate
+            </Text>
+            {/* below is a row for smaller screen  */}
+            <GridItem display={{ base: "Flex", lg: "none" }}>
+              <Accordion w={"full"} allowMultiple>
+                <AccordionItem borderColor={"bgDark"}>
+                  <AccordionButton fontSize={"12px"}>
+                    <Box flex="1" textAlign="left">
+                      {obj.properties["Attribute Name"].title[0]["plain_text"]}
+                    </Box>
+
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Flex
+                      w={"full"}
+                      justifyContent={"space-between"}
+                      wrap={"wrap"}
+                    >
+                      <Text pb={4} color={"#FFFFFF80"}>
+                        Prifina Attribute :
+                      </Text>
+                      <Text pb={4}>
+                        {
+                          obj.properties["Attribute Name"].title[0][
+                            "plain_text"
+                          ]
+                        }
+                      </Text>
+                    </Flex>
+                    <Flex
+                      w={"full"}
+                      justifyContent={"space-between"}
+                      wrap={"wrap"}
+                    >
+                      <Text pb={4} color={"#FFFFFF80"}>
+                        Aggregate :
+                      </Text>
+                      <Text pb={4}>obj.Aggregate</Text>
+                    </Flex>
+                    <Flex
+                      w={"full"}
+                      justifyContent={"space-between"}
+                      wrap={"wrap"}
+                      alignItems={"start"}
+                    >
+                      <Text pb={4} color={"#FFFFFF80"}>
+                        Data Category :
+                      </Text>
+                      <CategoryTag name={"Health"} />
+                    </Flex>
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
+            </GridItem>
           </Grid>
         ))}
       </GridItem>
       <Flex
+        display={{ base: "none", lg: "block" }}
         borderBottom={"1px"}
         borderLeft={"1px"}
         borderColor={"tableBorder"}

@@ -47,7 +47,7 @@ export const ZoomTable = ({ attributes, filtred }: Props) => {
 
   return (
     <Grid
-      gridTemplateColumns={"auto 1fr 1fr 1fr auto"}
+      gridTemplateColumns={"min-content 1fr 1fr 1fr min-content"}
       width={"full"}
       bg={"bgItemD"}
       fontSize={"12px"}

@@ -1,4 +1,5 @@
-import { Avatar, Box, Flex, Text, VStack } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Link, Text, VStack } from "@chakra-ui/react";
+import { BlockList } from "net";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -64,14 +65,16 @@ const Description = ({ name, description }: Props) => {
           textAlign={{ base: "center", lg: "left" }}
         >
           {description}
-          <Text
+          <Link
             pt={4}
             color={"linkText"}
             fontSize={"18px"}
             textAlign={{ base: "center", lg: "left" }}
+            display={"block"}
+            isExternal
           >
             https://ouraring.com/
-          </Text>
+          </Link>
         </Text>
       </VStack>
     </Flex>
