@@ -56,7 +56,6 @@ const SimilarDataSources = ({ category }: Props) => {
           onClick={() => {
             const scroll = refScroll.current.scrollLeft + 200;
             setScrollX(scroll);
-            console.log(refScroll.current.scrollLeft);
             refScroll.current.scrollLeft += 200;
           }}
         />
@@ -79,7 +78,6 @@ const SimilarDataSources = ({ category }: Props) => {
           icon={<Icon as={IoChevronBack} />}
           onClick={() => {
             const scroll = refScroll.current.scrollLeft - 200;
-            console.log(refScroll.current.scrollLeft, scroll);
             setScrollX(scroll);
 
             refScroll.current.scrollLeft -= 200;
