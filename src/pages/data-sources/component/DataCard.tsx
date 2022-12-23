@@ -1,5 +1,5 @@
 import { StatusBadge } from "../../../component/StatusBadge";
-import { Avatar, Icon, Text, VStack } from "@chakra-ui/react";
+import { Avatar, Box, Icon, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoLayers } from "react-icons/io5";
@@ -54,13 +54,16 @@ const DataCard = ({ name, status, isDynamic }: Props) => {
         )
       }
     >
-      <Avatar
-        name={name}
-        src={icon || ""}
-        borderRadius={"2xl"}
-        width={"60px"}
-        height={"60px"}
-      />
+      <Box bg={"#0cb0bd"} borderRadius={"18px"}>
+        <Avatar
+          name={name}
+          src={icon || ""}
+          borderRadius={"2xl"}
+          width={"60px"}
+          height={"60px"}
+        />
+      </Box>
+
       <Text
         width={"full"}
         px={4}
