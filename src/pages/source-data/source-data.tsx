@@ -117,17 +117,8 @@ const SourceData = () => {
           </Flex>
 
           {/* related apps */}
-          <VStack gap={6}>
-            <Text
-              color={"whiteText"}
-              textAlign={"left"}
-              width={"full"}
-              fontSize={"24px"}
-            >
-              Related Apps
-            </Text>
-            <RelatedApps relatedApps={filtred?.relatedApps.formula.string} />
-          </VStack>
+
+          <RelatedApps relatedApps={filtred?.relatedApps.formula.string} />
 
           {/* similar data sources */}
           {categories && (
