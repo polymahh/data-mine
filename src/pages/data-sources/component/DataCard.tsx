@@ -8,12 +8,11 @@ import DynamicIcon from "../../../assets/DynamicIcon";
 interface Props {
   name: string;
   status: any;
-  isDynamic: boolean;
+  isDynamic: any;
 }
 
 const DataCard = ({ name, status, isDynamic }: Props) => {
   const [icon, setIcon] = useState(null);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -76,14 +75,7 @@ const DataCard = ({ name, status, isDynamic }: Props) => {
         {name}
       </Text>
       <StatusBadge status={status ? status.name : "Requested"} />
-      {/* <Icon
-        display={isDynamic ? "block" : "none"}
-        position={"absolute"}
-        top={-7}
-        right={2}
-        fill={"dynamicColor"}
-        as={IoLayers}
-      /> */}
+
       <DynamicIcon
         display={isDynamic ? "block" : "none"}
         position={"absolute"}
