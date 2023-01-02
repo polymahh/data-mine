@@ -8,7 +8,7 @@ import DynamicIcon from "../../../assets/DynamicIcon";
 interface Props {
   name: string;
   status: any;
-  isDynamic: any;
+  isDynamic: boolean;
 }
 
 const DataCard = ({ name, status, isDynamic }: Props) => {

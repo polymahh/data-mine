@@ -71,7 +71,9 @@ const SourceData = () => {
           >
             {name}
           </Heading>
-          <IsDynamic dynamic={filtred?.["Dynamic Data"].has_more} />
+          <IsDynamic
+            dynamic={filtred["Dynamic Data"].relation[0]?.id !== undefined}
+          />
         </Flex>
         <VStack
           alignItems={"start"}
